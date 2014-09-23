@@ -1,0 +1,191 @@
+﻿html, 
+body, 
+#view-port 
+{
+    height: 100%;
+}
+
+body 
+{
+    margin: 0;
+    padding: 0;
+}
+
+#viewport .main-buttons{
+    position: fixed;
+    top: 50%;
+    margin: -138px 0 0 0;
+    width: 100%;
+    text-align: center;
+}
+
+#viewport .main-buttons h1{
+    margin-bottom: 40px;
+}
+
+
+/*buttons*/
+/*#viewport .dx-button,
+{
+    width: 80%;
+    margin-bottom: 40px;
+    padding: 30px 10px;
+}*/
+
+#viewport .button-wrap .dx-button{
+    margin: 20px;
+    width: 85%;
+}
+
+#viewport .button-wrap a .dx-button{
+    margin: 0px;
+    width: auto;
+}
+
+#viewport .button-wrap .dx-button .dx-button-content{
+    padding: 30px 10px;
+}
+
+#viewport .button-wrap .dx-button-text{
+    font-size: 21px;
+}
+
+#viewport .main-content .button-wrap .dx-button
+{
+    margin-bottom: 15px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#viewport .main-content .button-wrap .dx-button .dx-button-content{
+    padding: 10px 5px;
+}
+
+#viewport .dx-button-back .dx-button-content{
+    padding: 2px 0px;
+    margin-left: 0px;
+}
+
+#viewport .dx-button-back .dx-button-text{
+    font-size: 9pt;
+}
+/*end buttons*/
+
+#viewport .main-content {
+    position: relative;
+    width: auto;
+    bottom: 0;
+    height: auto;
+    /*margin-left: 10px;*/
+    text-align: center;
+    display: inline-block;
+}
+
+#viewport .send_email .dx-scrollview-content{
+    text-align: center;
+}
+
+#viewport.dx-theme-win8 .main-content {
+    top: 18px;
+}
+
+#viewport.dx-theme-android .main-content {
+    top: 20px;
+}
+
+#viewport.dx-theme-ios .main-content {
+    top: 18px;
+}
+
+#viewport.dx-theme-ios.dx-device-ios-7 .main-content {
+    top: 16px;
+}
+
+#viewport.dx-theme-tizen .main-content {
+    top: 16px;
+}
+
+#viewport.dx-theme-generic .main-content {
+    top: 18px;
+}
+
+.dx-viewport.dx-theme-ios.dx-version-major-7 .main-content {
+    background-color: #EFEFF4;
+}
+
+.dx-viewport.dx-theme-ios.dx-version-major-7 .main-content {
+    background-color: #EFEFF4;
+}
+
+.empty-layout 
+{
+    height: 100%;
+}
+
+.simple-layout
+{
+    height: 100%;
+}
+
+.dx-theme-tizen .main-buttons .dx-button,
+.dx-theme-win8 .main-buttons .dx-button
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.dx-theme-ios .slider-container 
+{
+    line-height: 28px;
+}
+
+.dx-viewport.dx-theme-ios-typography .dx-fieldset
+{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.dx-theme-tizen .dx-field-value.dx-editbox {
+    margin-top: 0;
+}
+
+.dx-theme-tizen .dx-field {
+    min-height: 35px;
+}
+
+.dx-field-value:not(.dx-switch):not(.dx-checkbox):not(.dx-button){
+    width: 90%;
+    float: none;
+    margin: auto;
+}
+.dx-field-value.dx-radio-group{
+    width: 100% !important;
+}
+.dx-field-value.dx-radio-group .dx-radio-button{
+    margin-right: 0px;
+}
+
+.home_unactive_head{
+    font-size: 16px;
+    text-align: justify;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.footer{
+    background: grey;
+    margin: 10px -15px 0px;
+    padding: 10px;
+    color: #fff;
+}
+
+
+.dx-theme-ios7 .dx-scrollable-native .dx-scrollable-content{
+    min-height: 100%;
+}
+.dx-theme-ios7 .dx-scrollable-content{
+    margin-right: 12px;
+}
+.dx-theme-android .dx-scrollview-content{
+    padding-bottom: 20px;
+}

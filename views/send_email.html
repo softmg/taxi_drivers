@@ -1,0 +1,26 @@
+<div data-options="dxView : { name: 'send_email', title: '@send_email' }">
+
+    <div class="send_email" id="newLogScrollView" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
+        <div class="main-content">
+
+            <!--<div class="phone-value" data-bind="text: dis_phone"></div>-->
+
+            <div class="dx-fieldset">
+                <div class="dx-field">
+                    <div id="messageInput" class="dx-field-value" data-bind="dxTextArea: { value: message, placeholder: '@message' }"></div>
+                </div>
+                <div class="dx-field">
+                  <div class="button-wrap" data-bind="dxAction: sendEmail">
+                    <div data-bind="dxButton: { text: '@send' }"></div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="footer" data-bind="text: discount"></div>
+
+            <div style='clear:both'></div>
+        </div>
+    </div>
+</div>
+
+
