@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.222221" vertical-offset="0" max-vertical-offset="1350">
-              <caret line="49" column="49" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
+            <state vertical-scroll-proportion="1.15625" vertical-offset="0" max-vertical-offset="1350">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -53,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="global.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.625" vertical-offset="105" max-vertical-offset="3360">
-              <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+            <state vertical-scroll-proportion="-5.9259257" vertical-offset="2840" max-vertical-offset="3360">
+              <caret line="200" column="13" selection-start-line="200" selection-start-column="5" selection-end-line="200" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -143,7 +143,6 @@
         <option value="$PROJECT_DIR$/PushAndroid.js" />
         <option value="$PROJECT_DIR$/app.config.js" />
         <option value="$PROJECT_DIR$/views/home_register.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/views/home.js" />
         <option value="$PROJECT_DIR$/js/localization/localization.default.js" />
         <option value="$PROJECT_DIR$/js/localization/localization.ru.js" />
@@ -151,6 +150,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/global.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -637,18 +637,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/global.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.222221" vertical-offset="0" max-vertical-offset="1350">
-          <caret line="49" column="49" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
+        <state vertical-scroll-proportion="-5.9259257" vertical-offset="2840" max-vertical-offset="3360">
+          <caret line="200" column="13" selection-start-line="200" selection-start-column="5" selection-end-line="200" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global.js">
+    <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625" vertical-offset="105" max-vertical-offset="3360">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        <state vertical-scroll-proportion="1.15625" vertical-offset="0" max-vertical-offset="1350">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>

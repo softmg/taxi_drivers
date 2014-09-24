@@ -32,7 +32,7 @@
 
             if(!_data_init['push'])
             {
-                initPush(function(pushToken){
+                _initPush(function(pushToken){
                     storeWrite("push_token", pushToken);
                     TaxiDrivers.config.push_token = pushToken;
 
