@@ -14,7 +14,7 @@
     <gap:plugin name="com.phonegap.plugins.PushPlugin"/>
     <gap:plugin name="org.apache.cordova.globalization"/>
 
-    <name>AppleTaxi Drivers</name>
+    <name>AT Drivers</name>
 
     <description>
        Для таксистов компании AppleTaxi
