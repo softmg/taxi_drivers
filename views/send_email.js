@@ -9,7 +9,7 @@ TaxiDrivers.send_email = function(params) {
         var send_email_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_send_email;
 
         $.ajax({
-            type: "POST",
+            type: "GET",
             data:{
                 message: message(),
             },
@@ -97,7 +97,7 @@ TaxiDrivers.send_email = function(params) {
     }
 
     return {
-        message: comment,
+        message: message,
 
         sendEmail: sendEmail,
     };

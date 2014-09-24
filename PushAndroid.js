@@ -1,6 +1,7 @@
 ﻿var onNotificationGCM;
 
-function registerPushAndroid() {
+function registerPushAndroid(callback) {
+    var callback = callback;
     var pushNotification = window.plugins.pushNotification;
 
     onNotificationGCM = function (e) {
@@ -12,7 +13,7 @@ function registerPushAndroid() {
             if ( e.regid.length > 0 )
             {
                 console.warn("regID = " + e.regid);
-                onPushAndroidInitialized(e.regid);
+                onPushAndroidInitialized(e.regid, callback);
             }
         break;
 
@@ -64,14 +65,13 @@ function registerPushAndroid() {
     });
 }
 
-function onPushAndroidInitialized(pushToken)
+function onPushAndroidInitialized(pushToken, callback)
 {
     //output the token to the console
     console.warn('push token: ' + pushToken);
-    store.insert({
-        name: "push_token",
-        value: pushToken
-    });
 
-    _sendToken(pushToken);
+    if(typeof(callback) !== 'undefined')
+    {
+      callback(pushToken);
+    }
 }

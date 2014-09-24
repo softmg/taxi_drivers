@@ -1,0 +1,17 @@
+<div data-options="dxView : { name: 'home_register', title: '@appletaxi' }">
+
+    <div class="home_register" data-options="dxContent : { targetPlaceholder: 'content' }">
+      <h1 data-bind="text: '@title_enter'"></h1>
+
+      <div class="dx-field">
+        <div id="titleInput" class="dx-field-value" data-bind="dxTextBox: { value: title, placeholder: '@title' }"></div>
+      </div>
+      <div class="dx-field">
+        <div class="button-wrap" data-bind="dxAction: register">
+          <div data-bind="dxButton: { text: '@register' }"></div>
+        </div>
+      </div>
+    </div>
+</div>
+
+

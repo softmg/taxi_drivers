@@ -1,6 +1,8 @@
 ﻿var onNotificationAPN;
 
-function registerPushIOS() {
+function registerPushIOS(callback) {
+    var callback = callback;
+
     onNotificationAPN = function(event) {
 
         console.warn('onNotificationAPN');
@@ -27,7 +29,7 @@ function registerPushIOS() {
     function(token)
     {
         console.warn(token);
-        onPushiOSInitialized(token);
+        onPushiOSInitialized(token, callback);
     },
     function(status)
     {
@@ -47,13 +49,12 @@ function registerPushIOS() {
 	    }, 0);
 }
 
-function onPushiOSInitialized(pushToken)
+function onPushiOSInitialized(pushToken, callback)
 {
-    store.insert({
-        name: "push_token",
-        value: pushToken
-    });
+     storeWrite("push_token", pushToken);
 
-    _sendToken(pushToken);
-
+     if(typeof(callback) !== 'undefined')
+     {
+       callback();
+     }
 }

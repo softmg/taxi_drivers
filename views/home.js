@@ -2,7 +2,7 @@
 console.warn('load home.js');
 TaxiDrivers.home = function(params) {
 
-    var balance = 123;
+    var balance = TaxiDrivers.config.balance;
 
     return {
         balance: balance,
