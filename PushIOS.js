@@ -1,9 +1,9 @@
 ﻿var onNotificationAPN;
-alert(1);
-var registerPushIOS= function(callback) {
+
+function registerPushIOS(callback) {
     var callback = callback;
 
-    onNotificationAPN = function(event) {
+    function onNotificationAPN(event) {
 
         console.warn('onNotificationAPN');
 
@@ -31,14 +31,14 @@ var registerPushIOS= function(callback) {
         dev_log('error unregister!');
     });*/
 
-    var registrationSuccessHandler = function(token) {
-        console.warn(token);
+    function registrationSuccessHandler(token) {
+        console.warn('success push token register:' . token);
         onPushiOSInitialized(token, callback);
-    },
+    };
 
-    var registrationFailedHandler = function(error) {
+    function registrationFailedHandler(error) {
         console.warn('failed to register: ' + error);
-    },
+    };
 
      pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "CDAPP-00000" },
                         registrationSuccessHandler,
