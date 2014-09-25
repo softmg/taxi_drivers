@@ -24,30 +24,39 @@ function registerPushIOS(callback) {
         }
     }
 
-    pushNotification.unregister(function(){
+    /*pushNotification.unregister(function(){
         dev_log('success unregister!');
-        pushNotification.register(
-        function(token)
-        {
-            console.warn(token);
-            onPushiOSInitialized(token, callback);
-        },
-        function(status)
-        {
-            console.warn('failed to register: ' + status);
-        },
-        {
-            "badge":"true",
-            "sound":"true",
-            "alert":"true",
-            "ecb":"onNotificationAPN"
-        });
     },
     function(){
         dev_log('error unregister!');
     });
 
+    pushNotification.register(
+    function(token)
+    {
+        console.warn(token);
+        onPushiOSInitialized(token, callback);
+    },
+    function(status)
+    {
+        console.warn('failed to register: ' + status);
+    },
+    {
+        "badge":"true",
+        "sound":"true",
+        "alert":"true",
+        "ecb":"onNotificationAPN"
+    });*/
 
+
+    pushNotification.registerDevice({ alert:true, badge:true, sound:true, ecb: onNotificationAPN,  appname: "TaxiDrivers" },
+    function(token) {
+       console.warn(token);
+       onPushiOSInitialized(token, callback);
+    },
+    function(status) {
+        console.warn('failed to register: ' + status);
+    });
 
 	pushNotification.setApplicationIconBadgeNumber(function(x){
 	        console.warn('success reset push badget')
