@@ -3,7 +3,7 @@
 function registerPushIOS(callback) {
     var callback = callback;
 
-    onNotificationAPN = function(event) {
+    function onNotificationAPN(event) {
 
         console.warn('onNotificationAPN');
 
@@ -31,12 +31,12 @@ function registerPushIOS(callback) {
         dev_log('error unregister!');
     });*/
 
-    var registrationSuccessHandler = function(token) {
-        console.warn(token);
+    function registrationSuccessHandler(token) {
+        console.warn('success push token register:' . token);
         onPushiOSInitialized(token, callback);
     };
 
-    var registrationFailedHandler = function(error) {
+    function registrationFailedHandler(error) {
         console.warn('failed to register: ' + error);
     };
 
