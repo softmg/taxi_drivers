@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19550173" vertical-offset="292" max-vertical-offset="1365">
-              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="1350">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -36,8 +36,8 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="330" max-vertical-offset="1695">
-              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            <state vertical-scroll-proportion="-5.625" vertical-offset="330" max-vertical-offset="1710">
+              <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -46,7 +46,7 @@
       <file leaf-file-name="PushIOS.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PushIOS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1335">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1335">
               <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
               <folding />
             </state>
@@ -63,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="global.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.296296" vertical-offset="2809" max-vertical-offset="3360">
-              <caret line="204" column="4" selection-start-line="204" selection-start-column="4" selection-end-line="204" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.6885813" vertical-offset="2782" max-vertical-offset="3360">
+              <caret line="212" column="25" selection-start-line="212" selection-start-column="25" selection-end-line="212" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -96,8 +96,18 @@
       <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1215">
-              <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1215">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PushWooshIOS.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PushWooshIOS.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
+              <caret line="0" column="29" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -108,16 +118,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
               <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="localization.ru.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/localization/localization.ru.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="390">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,12 +147,13 @@
         <option value="$PROJECT_DIR$/js/localization/localization.ru.js" />
         <option value="$PROJECT_DIR$/views/send_email.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/global.js" />
-        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/PushIOS.js" />
         <option value="$PROJECT_DIR$/PushIOS.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/PushWooshIOS.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/global.js" />
       </list>
     </option>
   </component>
@@ -471,14 +472,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PushIOS.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1080">
@@ -804,22 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1695">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1215">
-          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/send_email.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1650">
@@ -844,18 +821,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/global.js">
+    <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.296296" vertical-offset="2809" max-vertical-offset="3360">
-          <caret line="204" column="4" selection-start-line="204" selection-start-column="4" selection-end-line="204" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1215">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PushWooshIOS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
+          <caret line="0" column="29" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.625" vertical-offset="330" max-vertical-offset="1710">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19550173" vertical-offset="292" max-vertical-offset="1365">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="262" max-vertical-offset="1350">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6885813" vertical-offset="2782" max-vertical-offset="3360">
+          <caret line="212" column="25" selection-start-line="212" selection-start-column="25" selection-end-line="212" selection-end-column="25" />
           <folding />
         </state>
       </provider>

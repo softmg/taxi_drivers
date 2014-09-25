@@ -25,9 +25,8 @@
         dev_log('device ready');
 
         dev_log('start init config');
-pushNotification = window.plugins.pushNotification;
-registerPushIOS();
-        /*if(is_mobile)
+
+        if(is_mobile)
         {
             navigator.splashscreen.hide();
 
@@ -51,7 +50,7 @@ registerPushIOS();
             TaxiDrivers.config.push_token = 'test';
 
             init('test');
-        }*/
+        }
     }
 
     function init(token)
