@@ -37,10 +37,13 @@ function registerPushIOS(callback) {
     };
 
     function registrationFailedHandler(error) {
+        last_error = error;
         console.warn('failed to register: ' + error);
     };
 
-    cordova.exec(registrationSuccessHandler, registrationFailedHandler, "PushNotification", "registerDevice", { alert:true, badge:true, sound:true,  appname: "TaxiDrivers"});
+     pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "CDAPP-00000" },
+                        registrationSuccessHandler,
+                        registrationFailedHandler);
 
     /*pushNotification.register(
     registrationSuccessHandler,
