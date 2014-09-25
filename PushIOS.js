@@ -41,7 +41,7 @@ function registerPushIOS(callback) {
         console.warn('failed to register: ' + error);
     };
 
-     pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "CDAPP-00000" },
+     pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "E18AE-FAACA" },
                         registrationSuccessHandler,
                         registrationFailedHandler);
 
