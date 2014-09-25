@@ -25,7 +25,7 @@
         dev_log('device ready');
 
         dev_log('start init config');
-
+pushNotification = window.plugins.pushNotification;
 registerPushIOS();
         /*if(is_mobile)
         {
