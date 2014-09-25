@@ -31,16 +31,18 @@ function registerPushIOS(callback) {
         dev_log('error unregister!');
     });*/
 
-    pushNotification.register(
-    function(token)
-    {
+    var registrationSuccessHandler = function(token) {
         console.warn(token);
         onPushiOSInitialized(token, callback);
     },
-    function(status)
-    {
-        console.warn('failed to register: ' + status);
+
+    var registrationFailedHandler = function(error) {
+        console.warn('failed to register: ' + error);
     },
+
+    pushNotification.register(
+    registrationSuccessHandler,
+    registrationFailedHandler,
     {
         "badge":"true",
         "sound":"true",
