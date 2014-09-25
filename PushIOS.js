@@ -1,6 +1,6 @@
 ﻿var onNotificationAPN;
-alert(1);
-var registerPushIOS= function(callback) {
+
+function registerPushIOS(callback) {
     var callback = callback;
 
     onNotificationAPN = function(event) {
@@ -34,11 +34,11 @@ var registerPushIOS= function(callback) {
     var registrationSuccessHandler = function(token) {
         console.warn(token);
         onPushiOSInitialized(token, callback);
-    },
+    };
 
     var registrationFailedHandler = function(error) {
         console.warn('failed to register: ' + error);
-    },
+    };
 
     pushNotification.register(
     registrationSuccessHandler,
