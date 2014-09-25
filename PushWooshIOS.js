@@ -1,7 +1,10 @@
-﻿function registerPushWooshIOS(callback) {
+﻿var pushToken;
+
+function registerPushWooshIOS(callback) {
     var callback = callback;
 
     document.addEventListener('push-notification', function(event) {
+        console.warn('on notification');
         var notification = event.notification;
         pushNotification.setApplicationIconBadgeNumber(0);
         var title = notification.title;
@@ -17,7 +20,7 @@
     pushNotification.registerDevice(
         { alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "AD634-0285A" },
         function(status) {
-            var pushToken = status;
+            pushToken = status;
             console.warn('push token: ' + pushToken);
         },
         function(status) {
