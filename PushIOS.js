@@ -40,7 +40,11 @@ var registerPushIOS= function(callback) {
         console.warn('failed to register: ' + error);
     },
 
-    pushNotification.register(
+     pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "CDAPP-00000" },
+                        registrationSuccessHandler,
+                        registrationFailedHandler);
+
+    /*pushNotification.register(
     registrationSuccessHandler,
     registrationFailedHandler,
     {
@@ -48,7 +52,7 @@ var registerPushIOS= function(callback) {
         "sound":"true",
         "alert":"true",
         "ecb":"onNotificationAPN"
-    });
+    });*/
 
 
     /*pushNotification.registerDevice({ alert:true, badge:true, sound:true, ecb: onNotificationAPN,  appname: "TaxiDrivers" },
