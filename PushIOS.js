@@ -24,6 +24,12 @@ function registerPushIOS(callback) {
         }
     }
 
+    pushNotification.unregister(function(){
+        dev_log('success unregister!');
+    },
+    function(){
+        dev_log('error unregister!');
+    });
 
     pushNotification.register(
     function(token)
