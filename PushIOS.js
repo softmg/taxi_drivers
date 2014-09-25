@@ -1,6 +1,6 @@
 ﻿var onNotificationAPN;
-
-function registerPushIOS(callback) {
+alert(1);
+var registerPushIOS= function(callback) {
     var callback = callback;
 
     onNotificationAPN = function(event) {
