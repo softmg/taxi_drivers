@@ -13,7 +13,6 @@
     <gap:plugin name="org.apache.cordova.splashscreen"  />
     <gap:plugin name="com.phonegap.plugins.PushPlugin"/>
     <gap:plugin name="org.apache.cordova.globalization"/>
-    <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
 
     <name>AT Drivers</name>
 

@@ -41,11 +41,11 @@ function registerPushIOS(callback) {
         console.warn('failed to register: ' + error);
     };
 
-     pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "E18AE-FAACA" },
+     /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "E18AE-FAACA" },
                         registrationSuccessHandler,
-                        registrationFailedHandler);
+                        registrationFailedHandler);*/
 
-    /*pushNotification.register(
+    pushNotification.register(
     registrationSuccessHandler,
     registrationFailedHandler,
     {
@@ -53,7 +53,7 @@ function registerPushIOS(callback) {
         "sound":"true",
         "alert":"true",
         "ecb":"onNotificationAPN"
-    });*/
+    });
 
 
     /*pushNotification.registerDevice({ alert:true, badge:true, sound:true, ecb: onNotificationAPN,  appname: "TaxiDrivers" },
