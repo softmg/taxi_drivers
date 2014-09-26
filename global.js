@@ -206,7 +206,7 @@ var _initPush= function(callback) {
 
     if(device.platform == 'android' || device.platform == 'Android')
     {
-        registerPushAndroid(callback);
+        registerPushWooshAndroid(callback);
     }
     else
     {
