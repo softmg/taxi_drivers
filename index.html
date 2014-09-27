@@ -8,14 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <script type="text/javascript">
-        //debug datetime
-        var date_dev = new Date().valueOf();
-        var dev_log = function(msg)
-        {
-            console.warn(msg + ': ' + String(new Date().valueOf() - date_dev));
-        }
-    </script>
+
 
     <script src="http://192.168.0.103:8080/target/target-script-min.js"></script>
 
@@ -25,12 +18,8 @@
 
     <!-- This script is added by PhoneGap build -->
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="PushNotification.js"></script>
 
-    <script type="text/javascript" src="PushAndroid.js"></script>
-    <script type="text/javascript" src="PushIOS.js"></script>
-    <script type="text/javascript" src="PushWooshIOS.js"></script>
-    <script type="text/javascript" src="PushWooshAndroid.js"></script>
+
 
     <script type="text/javascript">
         dev_log('end load cordova and Pushwoosh');
@@ -81,7 +70,7 @@
     <!-- App -->
     <link rel="stylesheet" type="text/css" href="index.css" />
     <script type="text/javascript" src="app.config.js"></script>
-    <script type="text/javascript" src="global.js"></script>
+
     <script type="text/javascript" src="index.js"></script>
 
     <!-- Layouts -->
