@@ -22,6 +22,7 @@ var store_data;
 var pushNotification;
 var is_mobile = false;
 var last_error;
+var interval;
 
 if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform !== 'generic')
 {
@@ -174,8 +175,6 @@ var _initLocalStore= function()
         key: "name"
     });
 
-    store.remove('title');
-
     store.byKey('date_config').done(function(date_config) {
         var now = new Date();
         if(!date_config || now.valueOf() - date_config.value > TaxiDrivers.config.store_actual_time)
@@ -230,6 +229,63 @@ var _myAlert= function(info)
     }
     else{
         navigator.notification.alert(info);
+    }
+}
+
+var androidInputScroll= function(idScrollView) {
+    if (DevExpress.devices.real().platform === 'android') {
+        $(".dx-scrollview-content").attr('data-height', $(".dx-scrollview-content").closest(".dx-scrollview-content").height());
+        $("input[type='text']").focusin(function () {
+            var input = $(this);
+
+            input.closest(".dx-scrollview-content").height(parseInt(input.closest(".dx-scrollview-content").attr('data-height')) + 100);
+
+            setTimeout(function(){
+                var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+                scroller.update().then(function(){
+                    var base = input.closest(".dx-scrollview-content").offset();
+
+                    scroller.scrollTo(input.offset().top - base.top);
+                });
+            }, 399);
+        });
+        $("input[type='text']").focusout(function () {
+            var input = $(this);
+            input.closest(".dx-scrollview-content").height(input.closest(".dx-scrollview-content").attr('data-height'));
+
+            var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+            scroller.update().then(function(){
+                var base = input.closest(".dx-scrollview-content").offset();
+
+                scroller.scrollTo(input.offset().top + base.top);
+            });
+        });
+        $("textarea").focusin(function () {
+            var input = $(this);
+            setTimeout(function(){
+
+                input.closest(".dx-scrollview-content").height(parseInt(input.closest(".dx-scrollview-content").attr('data-height')) + 100);
+
+                var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+                scroller.update().then(function(){
+                     var base = input.closest(".dx-scrollview-content").offset();
+
+                     scroller.scrollTo(input.offset().top - base.top);
+                });
+            }, 399);
+        });
+
+        $("textarea").focusout(function () {
+            var input = $(this);
+            input.closest(".dx-scrollview-content").height(input.closest(".dx-scrollview-content").attr('data-height'));
+
+            var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+            scroller.update().then(function(){
+                var base = input.closest(".dx-scrollview-content").offset();
+
+                scroller.scrollTo(input.offset().top + base.top);
+            });
+        });
     }
 }
 

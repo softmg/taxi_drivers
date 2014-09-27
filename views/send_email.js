@@ -39,63 +39,6 @@ TaxiDrivers.send_email = function(params) {
         })
     }
 
-    function androidInputScroll(idScrollView) {
-        if (DevExpress.devices.real().platform === 'android') {
-            $(".dx-scrollview-content").attr('data-height', $(".dx-scrollview-content").closest(".dx-scrollview-content").height());
-            $("input[type='text']").focusin(function () {
-                var input = $(this);
-
-                input.closest(".dx-scrollview-content").height(parseInt(input.closest(".dx-scrollview-content").attr('data-height')) + 100);
-
-                setTimeout(function(){
-                    var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
-                    scroller.update().then(function(){
-                        var base = input.closest(".dx-scrollview-content").offset();
-
-                        scroller.scrollTo(input.offset().top - base.top);
-                    });
-                }, 399);
-            });
-            $("input[type='text']").focusout(function () {
-                var input = $(this);
-                input.closest(".dx-scrollview-content").height(input.closest(".dx-scrollview-content").attr('data-height'));
-
-                var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
-                scroller.update().then(function(){
-                    var base = input.closest(".dx-scrollview-content").offset();
-
-                    scroller.scrollTo(input.offset().top + base.top);
-                });
-            });
-            $("textarea").focusin(function () {
-                var input = $(this);
-                setTimeout(function(){
-
-                    input.closest(".dx-scrollview-content").height(parseInt(input.closest(".dx-scrollview-content").attr('data-height')) + 100);
-
-                    var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
-                    scroller.update().then(function(){
-                         var base = input.closest(".dx-scrollview-content").offset();
-
-                         scroller.scrollTo(input.offset().top - base.top);
-                    });
-                }, 399);
-            });
-
-            $("textarea").focusout(function () {
-                var input = $(this);
-                input.closest(".dx-scrollview-content").height(input.closest(".dx-scrollview-content").attr('data-height'));
-
-                var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
-                scroller.update().then(function(){
-                    var base = input.closest(".dx-scrollview-content").offset();
-
-                    scroller.scrollTo(input.offset().top + base.top);
-                });
-            });
-        }
-    }
-
     return {
         message: message,
 
