@@ -4,12 +4,34 @@ TaxiDrivers.home = function(params) {
 
     var balance = TaxiDrivers.config.balance;
 
+    function updateBalance(balance)
+    {
+        $('.balance').text(balance);
+
+        $('.balance').removeClass('pozitive').removeClass('negative');
+
+        if(balance > 0)
+        {
+            $('.balance').addClass('pozitive');
+        }
+
+        if(balance < 0)
+        {
+            $('.balance').addClass('negative');
+        }
+    }
+
     function viewShown() {
+
+        updateBalance(balance);
+
         if(!interval)
         {
             interval = window.setInterval(function(){
                     console.warn('update driver balance');
-                    _getBalance(TaxiDrivers.config.push_token);
+                    _getBalance(TaxiDrivers.config.push_token, false, false, function(balance){
+                        updateBalance(balance);
+                    });
                 },
                 TaxiDrivers.config.balance_update
             );

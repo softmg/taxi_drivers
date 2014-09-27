@@ -47,7 +47,7 @@ var storeWrite = function(name, value)
     });
 }
 
-var _getBalance = function(token, to_home, callback_error)
+var _getBalance = function(token, to_home, callback_error, callback_success)
 {
     var balance_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_balance;
     var push_token = TaxiDrivers.config.push_token;
@@ -94,6 +94,11 @@ var _getBalance = function(token, to_home, callback_error)
             {
                 TaxiDrivers.app.router.register(":view", { view: "home" });
                 TaxiDrivers.app.navigate("home");
+            }
+            else{
+                if(callback_success){
+                    callback_success(data.balance);
+                }
             }
         }
     })
@@ -178,6 +183,8 @@ var _initLocalStore= function()
         key: "name"
     });
 
+    store.remove('title');
+
     store.byKey('date_config').done(function(date_config) {
         var now = new Date();
         if(!date_config || now.valueOf() - date_config.value > TaxiDrivers.config.store_actual_time)
@@ -227,68 +234,11 @@ var _initPush= function(callback) {
 
 var _myAlert= function(info)
 {
-    if(!is_mobile){
+    if(is_mobile){
         alert(info);
     }
     else{
         navigator.notification.alert(info);
-    }
-}
-
-var androidInputScroll= function(idScrollView) {
-    if (DevExpress.devices.real().platform === 'android') {
-        $(".dx-scrollview-content").attr('data-height', $(".dx-scrollview-content").closest(".dx-scrollview-content").height());
-        $("input[type='text']").focusin(function () {
-            var input = $(this);
-
-            input.closest(".dx-scrollview-content").height(parseInt(input.closest(".dx-scrollview-content").attr('data-height')) + 100);
-
-            setTimeout(function(){
-                var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
-                scroller.update().then(function(){
-                    var base = input.closest(".dx-scrollview-content").offset();
-
-                    scroller.scrollTo(input.offset().top - base.top);
-                });
-            }, 399);
-        });
-        $("input[type='text']").focusout(function () {
-            var input = $(this);
-            input.closest(".dx-scrollview-content").height(input.closest(".dx-scrollview-content").attr('data-height'));
-
-            var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
-            scroller.update().then(function(){
-                var base = input.closest(".dx-scrollview-content").offset();
-
-                scroller.scrollTo(input.offset().top + base.top);
-            });
-        });
-        $("textarea").focusin(function () {
-            var input = $(this);
-            setTimeout(function(){
-
-                input.closest(".dx-scrollview-content").height(parseInt(input.closest(".dx-scrollview-content").attr('data-height')) + 100);
-
-                var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
-                scroller.update().then(function(){
-                     var base = input.closest(".dx-scrollview-content").offset();
-
-                     scroller.scrollTo(input.offset().top - base.top);
-                });
-            }, 399);
-        });
-
-        $("textarea").focusout(function () {
-            var input = $(this);
-            input.closest(".dx-scrollview-content").height(input.closest(".dx-scrollview-content").attr('data-height'));
-
-            var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
-            scroller.update().then(function(){
-                var base = input.closest(".dx-scrollview-content").offset();
-
-                scroller.scrollTo(input.offset().top + base.top);
-            });
-        });
     }
 }
 

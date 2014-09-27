@@ -7,7 +7,7 @@
         "backend_uri_balance": "get_driver_balance",
         "push_token": "",
         "title": "",
-        "balance_update": 60000;
+        "balance_update": 6000,
         "store_actual_time" : 100000,
     }
 });
