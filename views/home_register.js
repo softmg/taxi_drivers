@@ -10,9 +10,11 @@ TaxiDrivers.home_register = function(params) {
 
         dev_log('start register');
 
-        _sendToken(push_token, title(), function(){
-                storeWrite("title", title());
-                TaxiDrivers.config.title = title();
+        var title_cur = title();
+
+        _sendToken(push_token, title_cur, function(){
+                storeWrite("title", title_cur);
+                TaxiDrivers.config.title = title_cur;
 
                 _getBalance(push_token, true, function(){
                     dev_log('get balance error!');

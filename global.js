@@ -145,9 +145,16 @@ var _sendToken = function(push_token, title, callback, callback_error)
         success: function(data){
             console.warn('токен устройства зарегистрирован на сервере');
 
-            if(typeof(callback) !== 'undefined')
+            if(data.error)
             {
-              callback();
+                _myAlert(data.error);
+            }
+            else
+            {
+                if(typeof(callback) !== 'undefined')
+                {
+                  callback();
+                }
             }
         }
     });
@@ -214,6 +221,16 @@ var _initPush= function(callback) {
     }
 
     dev_log('end init push');
+}
+
+var _myAlert= function(info)
+{
+    if(!is_mobile){
+        alert(info);
+    }
+    else{
+        navigator.notification.alert(info);
+    }
 }
 
 var _data_init = _initLocalStore();
