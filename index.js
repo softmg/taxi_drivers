@@ -21,13 +21,12 @@
     });
 
     function onDeviceReady() {
-        navigator.splashscreen.hide();
 
         dev_log('device ready');
 
         dev_log('start init config');
 
-        /*if(is_mobile)
+        if(is_mobile)
         {
             navigator.splashscreen.hide();
 
@@ -51,7 +50,7 @@
             TaxiDrivers.config.push_token = 'test';
 
             init('test');
-        }*/
+        }
     }
 
     function init(token)
