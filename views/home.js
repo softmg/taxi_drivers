@@ -8,6 +8,7 @@ TaxiDrivers.home = function(params) {
         if(!interval)
         {
             interval = window.setInterval(function(){
+                    console.warn('update driver balance');
                     _getBalance(TaxiDrivers.config.push_token);
                 },
                 TaxiDrivers.config.balance_update

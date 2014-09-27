@@ -90,8 +90,11 @@ var _getBalance = function(token, to_home, callback_error)
 
             TaxiDrivers.config.balance   = data.balance;
 
-            TaxiDrivers.app.router.register(":view", { view: "home" });
-            TaxiDrivers.app.navigate("home");
+            if(to_home)
+            {
+                TaxiDrivers.app.router.register(":view", { view: "home" });
+                TaxiDrivers.app.navigate("home");
+            }
         }
     })
 }
