@@ -247,14 +247,6 @@ body
     color: #000;
 }
 
-#viewport .home_register{
-    top: 50%;
-    left: 50%;
-    position: fixed;
-    margin-top: -97px;
-    margin-left: -47%;
-}
-
 #titleInput{
     width: 85%;
     display: inline-block;
