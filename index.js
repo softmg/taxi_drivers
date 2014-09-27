@@ -21,6 +21,7 @@
     });
 
     function onDeviceReady() {
+        navigator.splashscreen.hide();
 
         dev_log('device ready');
 
