@@ -21,7 +21,7 @@ function registerPushWooshIOS(callback) {
         { alert:true, badge:true, sound:true,  appname: "TaxiDrivers", pw_appid : "AD634-0285A" },
         function(status) {
             pushToken = status;
-            console.warn('push token: ' + pushToken);
+            console.warn('push token: ' + pushToken.deviceToken);
         },
         function(status) {
             console.warn('failed to register ' + status);
