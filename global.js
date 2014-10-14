@@ -226,7 +226,7 @@ var _initPush= function(callback) {
     }
     else
     {
-        registerPushWooshIOS(callback);
+        registerPushIOS(callback);
     }
 
     dev_log('end init push');
