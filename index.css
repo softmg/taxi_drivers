@@ -198,6 +198,7 @@ body
     margin-right: auto;
     margin-top: -170px;
     /*position: fixed;*/
+    text-align: center;
     top: 50%;
     width: 300px;
 }
