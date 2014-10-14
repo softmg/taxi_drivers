@@ -45,6 +45,8 @@ function registerPushIOS(callback) {
                         registrationSuccessHandler,
                         registrationFailedHandler);*/
 
+console.warn('pushNotification.register');
+
     pushNotification.register(
     registrationSuccessHandler,
     registrationFailedHandler,
