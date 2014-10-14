@@ -4,9 +4,9 @@ TaxiDrivers.home = function(params) {
 
     var balance = TaxiDrivers.config.balance;
 
-    function updateBalance(balance)
+    function updateBalance(balance, not_refresh)
     {
-        $('.balance').text(balance);
+        if(not_refresh) $('.balance').text(balance);
 
         $('.balance').removeClass('pozitive').removeClass('negative');
 
@@ -33,7 +33,7 @@ TaxiDrivers.home = function(params) {
 
         $('.layout-header .dx-button').hide();
 
-        updateBalance(balance);
+        updateBalance(balance, true);
 
         if(!interval)
         {
