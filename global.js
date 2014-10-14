@@ -53,6 +53,7 @@ var _getBalance = function(token, to_home, callback_error, callback_success)
     var push_token = TaxiDrivers.config.push_token;
 
     console.warn('url get balance: ' + balance_url);
+    console.warn('push_token: ' + push_token);
     $.ajax({
         type: "get",
         data:{

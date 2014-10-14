@@ -14,7 +14,6 @@ body
 #viewport .main-buttons{
     position: fixed;
     top: 50%;
-    margin: -138px 0 0 0;
     width: 100%;
     text-align: center;
 }
@@ -208,8 +207,8 @@ body
     top: 50%;
     left: 50%;
     position: fixed;
-    margin-top: -97px;
-    margin-left: -47%;
+    margin-top: -170px;
+    margin-left: -50%;
 }
 
 #viewport .balance{
@@ -235,6 +234,8 @@ body
     background-image: -o-linear-gradient(-90deg,#eae9e9 0%,#e0e0df 100%);
     background-image: linear-gradient(180deg,#eae9e9 0%,#e0e0df 100%);
     border: 1px solid rgba(0,0,0,.15);
+
+    font-size: 20pt !important;
 }
 
 #viewport .balance.pozitive{
@@ -254,7 +255,7 @@ body
 }
 
 #viewport .home_register h2{
-    margin-left: 10px;
+    margin: 0px 20px 30px 10px;
     text-align: center;
 }
 
