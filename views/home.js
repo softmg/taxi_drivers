@@ -2,9 +2,9 @@
 console.warn('load home.js');
 TaxiDrivers.home = function(params) {
 
-    var balance = TaxiDrivers.config.balance;
+    var balance = ko.observable(TaxiDrivers.config.balance);
 
-    function updateBalance(balance, not_refresh)
+    function updateBalance(balance)
     {
 
 
@@ -20,20 +20,20 @@ TaxiDrivers.home = function(params) {
             $('.balance').addClass('negative');
         }
 
-        if(not_refresh) $('.balance').text(balance);
+        $('.balance').text(balance);
 
     }
 
     function beforeViewSetup()
     {
-        updateBalance(balance);
+        //updateBalance(balance);
     }
 
     function viewShown() {
 
         $('.layout-header .dx-button').hide();
 
-        updateBalance(balance, true);
+        updateBalance(balance);
 
         if(!interval)
         {
