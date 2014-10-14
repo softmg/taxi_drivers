@@ -1,17 +1,5 @@
 ﻿var onNotificationAPN;
 
-var onPushiOSInitialized = function(pushToken, callback)
-{
-    console.warn('push_token callback: ' + pushToken);
-
-     storeWrite("push_token", pushToken);
-
-     if(typeof(callback) !== 'undefined')
-     {
-       callback(pushToken);
-     }
-}
-
 
 function registerPushIOS(callback) {
 //console.warn('start registerPushIOS');
@@ -44,6 +32,18 @@ function registerPushIOS(callback) {
     function(){
         dev_log('error unregister!');
     });*/
+
+    function onPushiOSInitialized(pushToken, callback)
+    {
+        console.warn('push_token callback: ' + pushToken);
+
+         storeWrite("push_token", pushToken);
+
+         if(typeof(callback) !== 'undefined')
+         {
+           callback(pushToken);
+         }
+    }
 
     function registrationSuccessHandler(token) {
         console.warn('success push token register:' + token);
