@@ -173,6 +173,7 @@ var _sendToken = function(push_token, title, callback, callback_error)
 var _initLocalStore= function()
 {
 
+console.warn('start init local store');
     dev_log('start init local store');
 
     var config = true;
