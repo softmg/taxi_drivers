@@ -77,6 +77,8 @@ console.warn('pushNotification.register');
 
 function onPushiOSInitialized(pushToken, callback)
 {
+    console.warn('push_token callback: ' + pushToken);
+    
      storeWrite("push_token", pushToken);
 
      if(typeof(callback) !== 'undefined')
