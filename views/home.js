@@ -22,7 +22,7 @@ TaxiDrivers.home = function(params) {
 
         var elems = document.getElementsByClassName('balance'), i;
         for (i in elems) {
-            elems[i].innerHTML = balance;
+            //elems[i].innerHTML = balance;
         }
 
         //$('.balance').text(balance);
