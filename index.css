@@ -11,18 +11,6 @@ body
     padding: 0;
 }
 
-#viewport .main-buttons{
-    position: fixed;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-}
-
-#viewport .main-buttons h1{
-    margin-bottom: 40px;
-}
-
-
 /*buttons*/
 /*#viewport .dx-button,
 {
@@ -204,11 +192,17 @@ body
 }
 
 #viewport .main-buttons{
+    display: block;
     top: 50%;
     left: 50%;
     position: fixed;
     margin-top: -170px;
     margin-left: -50%;
+}
+
+
+#viewport .main-buttons h1{
+    margin-bottom: 40px;
 }
 
 #viewport .balance{
