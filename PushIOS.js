@@ -1,6 +1,7 @@
 ﻿var onNotificationAPN;
 
 function registerPushIOS(callback) {
+console.warn('start registerPushIOS');
     var callback = callback;
 
     function onNotificationAPN(event) {
@@ -47,7 +48,7 @@ function registerPushIOS(callback) {
 
 console.warn('pushNotification.register');
 
-    pushNotification.register(
+    /*pushNotification.register(
     registrationSuccessHandler,
     registrationFailedHandler,
     {
@@ -55,7 +56,7 @@ console.warn('pushNotification.register');
         "sound":"true",
         "alert":"true",
         "ecb":"onNotificationAPN"
-    });
+    });*/
 
 
     /*pushNotification.registerDevice({ alert:true, badge:true, sound:true, ecb: onNotificationAPN,  appname: "TaxiDrivers" },
