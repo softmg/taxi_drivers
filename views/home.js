@@ -19,6 +19,8 @@ TaxiDrivers.home = function(params) {
         {
             $('.balance').addClass('negative');
         }
+
+        $('.balance').text(balance);
     }
 
     function viewShown() {
