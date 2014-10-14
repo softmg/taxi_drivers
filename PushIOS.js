@@ -81,6 +81,6 @@ function onPushiOSInitialized(pushToken, callback)
 
      if(typeof(callback) !== 'undefined')
      {
-       callback();
+       callback(pushToken);
      }
 }
