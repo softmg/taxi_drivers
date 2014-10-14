@@ -20,7 +20,7 @@ TaxiDrivers.home = function(params) {
             $('.balance').addClass('negative');
         }
 
-        var elems = document.getElementsByClassName('balance');
+        var elems = document.getElementsByClassName('balance'), i;
         for (i in elems) {
             elems[i].innerHTML = balance;
         }
@@ -38,7 +38,7 @@ TaxiDrivers.home = function(params) {
 
         $('.layout-header .dx-button').hide();
 
-        //updateBalance(balance);
+        updateBalance(balance);
 
         if(!interval)
         {
