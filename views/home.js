@@ -20,12 +20,7 @@ TaxiDrivers.home = function(params) {
             $('.balance').addClass('negative');
         }
 
-        var elems = document.getElementsByClassName('balance'), i;
-        for (i in elems) {
-            //elems[i].innerHTML = balance;
-        }
-
-        //$('.balance').text(balance);
+        $('.balance').text(balance);
 
     }
 
@@ -42,14 +37,14 @@ TaxiDrivers.home = function(params) {
 
         if(!interval)
         {
-            interval = window.setInterval(function(){
+            /*interval = window.setInterval(function(){
                     console.warn('update driver balance');
                     _getBalance(TaxiDrivers.config.push_token, false, false, function(balance){
                         updateBalance(balance);
                     });
                 },
                 TaxiDrivers.config.balance_update
-            );
+            );*/
         }
     }
 
