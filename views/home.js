@@ -7,8 +7,8 @@ TaxiDrivers.home = function(params) {
     function updateBalance(balance)
     {
 
-
-        $('.balance').removeClass('pozitive').removeClass('negative');
+        $('.balance').replaceWith('<div class="balance" data-bind="text: balance">' + balance + '</div>');
+        //$('.balance').removeClass('pozitive').removeClass('negative');
 
         if(balance > 0)
         {
@@ -20,7 +20,7 @@ TaxiDrivers.home = function(params) {
             $('.balance').addClass('negative');
         }
 
-        $('.balance').text(balance);
+        //$('.balance').text(balance);
 
     }
 
