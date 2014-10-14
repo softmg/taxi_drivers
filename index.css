@@ -191,17 +191,19 @@ body
     margin-left: -100px;
 }
 
-#viewport .main-buttons{
+.main-buttons.dx-content{
     display: block;
-    top: 50%;
     left: 50%;
-    position: fixed;
-    margin-top: -170px;
     margin-left: -50%;
+    margin-right: auto;
+    margin-top: -170px;
+    /*position: fixed;*/
+    top: 50%;
+    width: 300px;
 }
 
 
-#viewport .main-buttons h1{
+.main-buttons.dx-content h1{
     margin-bottom: 40px;
 }
 
