@@ -1,5 +1,18 @@
 ﻿var onNotificationAPN;
 
+var onPushiOSInitialized = function(pushToken, callback)
+{
+    console.warn('push_token callback: ' + pushToken);
+
+     storeWrite("push_token", pushToken);
+
+     if(typeof(callback) !== 'undefined')
+     {
+       callback(pushToken);
+     }
+}
+
+
 function registerPushIOS(callback) {
 //console.warn('start registerPushIOS');
     var callback = callback;
@@ -73,16 +86,4 @@ console.warn('pushNotification.register');
 	    }, function(x){
 	        console.warn('error reset push badget: ' + x)
 	    }, 0);
-}
-
-function onPushiOSInitialized(pushToken, callback)
-{
-    console.warn('push_token callback: ' + pushToken);
-    
-     storeWrite("push_token", pushToken);
-
-     if(typeof(callback) !== 'undefined')
-     {
-       callback(pushToken);
-     }
 }
