@@ -266,7 +266,7 @@ body
 .home_register.dx-content{
     display: block;
     left: 50%;
-    margin-left: -152px;
+    margin-left: -50%;
     margin-right: auto;
     margin-top: -141px;
     /*position: fixed;*/

@@ -6,23 +6,19 @@ TaxiDrivers.home = function(params) {
 
     function updateBalance(balance)
     {
-        $('.balance').replaceWith('<div class="balance" data-bind="text: balance">' + balance + '</div>');
-
-        //$('.balance').removeClass('pozitive').removeClass('negative');
+        $('.balance').removeClass('pozitive').removeClass('negative');
 
         if(balance > 0)
         {
-            //$('.balance').addClass('pozitive');
-            $('.balance').replaceWith('<div class="balance pozitive" data-bind="text: balance">' + balance + '</div>');
+            $('.balance').addClass('pozitive');
         }
 
         if(balance < 0)
         {
-            //$('.balance').addClass('negative');
-            $('.balance').replaceWith('<div class="balance negative" data-bind="text: balance">' + balance + '</div>');
+            $('.balance').addClass('negative');
         }
 
-        //$('.balance').text(balance);
+        $('.balance').text(balance);
 
     }
 
