@@ -6,7 +6,7 @@ TaxiDrivers.home = function(params) {
 
     function updateBalance(balance)
     {
-        $('.balance').text(balance);
+        //$('.balance').text(balance);
 
         $('.balance').removeClass('pozitive').removeClass('negative');
 
@@ -20,11 +20,19 @@ TaxiDrivers.home = function(params) {
             $('.balance').addClass('negative');
         }
 
+        //$('.balance').text(balance);
+
+    }
+
+    function beforeViewSetup()
+    {
         $('.balance').text(balance);
     }
 
     function viewShown() {
 
+        $('.layout-header .dx-button').hide();
+        
         updateBalance(balance);
 
         if(!interval)
@@ -40,9 +48,11 @@ TaxiDrivers.home = function(params) {
         }
     }
 
+
     return {
         balance: balance,
 
+        beforeViewSetup: beforeViewSetup,
         viewShown: viewShown,
     };
 };
