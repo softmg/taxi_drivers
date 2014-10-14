@@ -26,14 +26,14 @@ TaxiDrivers.home = function(params) {
 
     function beforeViewSetup()
     {
-        $('.balance').text(balance);
+        updateBalance(balance);
     }
 
     function viewShown() {
 
         $('.layout-header .dx-button').hide();
 
-        updateBalance(balance, true);
+        //updateBalance(balance, true);
 
         if(!interval)
         {
