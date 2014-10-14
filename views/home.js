@@ -6,7 +6,7 @@ TaxiDrivers.home = function(params) {
 
     function updateBalance(balance, not_refresh)
     {
-        if(not_refresh) $('.balance').text(balance);
+
 
         $('.balance').removeClass('pozitive').removeClass('negative');
 
@@ -20,7 +20,7 @@ TaxiDrivers.home = function(params) {
             $('.balance').addClass('negative');
         }
 
-        //$('.balance').text(balance);
+        if(not_refresh) $('.balance').text(balance);
 
     }
 
