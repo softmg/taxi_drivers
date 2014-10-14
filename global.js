@@ -183,7 +183,7 @@ var _initLocalStore= function()
         key: "name"
     });
 
-    store.remove('title');
+    //store.remove('title');
 
     store.byKey('date_config').done(function(date_config) {
         var now = new Date();
