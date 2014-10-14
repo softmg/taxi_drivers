@@ -2,7 +2,7 @@
 console.warn('load home.js');
 TaxiDrivers.home = function(params) {
 
-    var balance = ko.observable(TaxiDrivers.config.balance);
+    var balance = TaxiDrivers.config.balance;
 
     function updateBalance(balance)
     {
@@ -22,7 +22,7 @@ TaxiDrivers.home = function(params) {
 
         var elems = document.getElementsByClassName('balance'), i;
         for (i in elems) {
-            elems[i].innerHTML = balance;
+            elems[i].innerHTML = balance();
         }
 
         //$('.balance').text(balance);
