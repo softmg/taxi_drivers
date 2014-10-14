@@ -33,7 +33,7 @@ TaxiDrivers.home = function(params) {
 
         $('.layout-header .dx-button').hide();
 
-        updateBalance(balance);
+        //updateBalance(balance);
 
         if(!interval)
         {
