@@ -254,6 +254,29 @@ body
 }
 
 #viewport .home_register h2{
-    margin-left: 20px;
+    margin-left: 10px;
     text-align: center;
+}
+
+.dx-theme-ios-typography .dx-field{
+    border-bottom: none !important;
+}
+
+.home_register.dx-content{
+    display: block;
+    left: 50%;
+    margin-left: -152px;
+    margin-right: auto;
+    margin-top: -141px;
+    /*position: fixed;*/
+    top: 50%;
+    width: 300px;
+}
+
+.home_register.dx-content .dx-button-text{
+    font-size: 14pt !important;
+}
+
+.home_register.dx-content .dx-field-value{
+    float: none !important;
 }
