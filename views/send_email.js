@@ -39,9 +39,17 @@ TaxiDrivers.send_email = function(params) {
         })
     }
 
+    function viewShown() {
+
+        $('.layout-header .dx-button').show();
+
+    }
+
     return {
         message: message,
 
         sendEmail: sendEmail,
+
+        viewShown: viewShown
     };
 };
