@@ -286,9 +286,9 @@ body
 
 .home_register.dx-content .dx-texteditor-input{
     height: 75px;
-    font-size: 2em !important;
+    font-size: 48px !important;
 }
 
 .home_register.dx-content .dx-placeholder{
-    font
+    font-size: 48px;
 }
