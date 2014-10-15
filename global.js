@@ -62,6 +62,7 @@ var _getBalance = function(token, to_home, callback_error, callback_success)
         dataType: 'jsonp',
         url: balance_url,
         jsonp: "mycallback",
+        timeout: 3000,
         error: function(x,e){
                         if(x.status==0){
                             console.warn('You are offline!!\n Please Check Your Network.');

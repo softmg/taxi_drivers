@@ -72,6 +72,10 @@ body
     text-align: center;
 }
 
+#viewport .send_email h2{
+    margin: 40px 0px;
+}
+
 #viewport.dx-theme-win8 .main-content {
     top: 18px;
 }
