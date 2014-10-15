@@ -189,6 +189,7 @@ body
     position: fixed;
     margin-top: -97px;
     margin-left: -100px;
+    text-align: center;
 }
 
 .main-buttons.dx-content{
@@ -277,4 +278,13 @@ body
 
 .home_register.dx-content .dx-field-value{
     float: none !important;
+}
+
+.home_register.dx-content .dx-texteditor-input{
+    height: 75px;
+    font-size: 2em !important;
+}
+
+.home_register.dx-content .dx-placeholder{
+    font
 }
