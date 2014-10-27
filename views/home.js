@@ -6,6 +6,8 @@ TaxiDrivers.home = function(params) {
 
     function updateBalance(balance)
     {
+        console.warn('update balance ' + balance);
+
         $('.balance').removeClass('pozitive').removeClass('negative');
 
         if(balance > 0)
@@ -24,10 +26,14 @@ TaxiDrivers.home = function(params) {
 
     function beforeViewSetup()
     {
+        console.warn('beforeView');
+
         updateBalance(balance);
     }
 
     function viewShown() {
+
+        console.warn('viewShown');
 
         $('.layout-header .dx-button').hide();
 
