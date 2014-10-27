@@ -24,7 +24,7 @@ TaxiDrivers.home = function(params) {
 
     function beforeViewSetup()
     {
-        //updateBalance(balance);
+        updateBalance(balance);
     }
 
     function viewShown() {
