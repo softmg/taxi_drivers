@@ -8,6 +8,7 @@ function registerPushIOS(callback) {
     onNotificationAPN = function(event) {
 
         console.warn('onNotificationAPN');
+        console.warn('event.sound ' + event.sound);
 
         if ( event.alert )
         {
