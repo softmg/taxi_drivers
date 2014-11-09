@@ -5,7 +5,7 @@ function registerPushIOS(callback) {
 //console.warn('start registerPushIOS');
     var callback = callback;
 
-    function onNotificationAPN(event) {
+    onNotificationAPN = function(event) {
 
         console.warn('onNotificationAPN');
 
@@ -16,8 +16,8 @@ function registerPushIOS(callback) {
 
         if ( event.sound )
         {
-            //var snd = new Media(event.sound);
-            //snd.play();
+            var snd = new Media(event.sound);
+            snd.play();
         }
 
         if ( event.badge )

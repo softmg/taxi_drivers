@@ -33,8 +33,8 @@ TaxiDrivers.home = function(params) {
 
     function viewShown() {
 
+        balance = TaxiDrivers.config.balance;
         console.warn('viewShown');
-        console.warn('TaxiDrivers.config.balance ' + TaxiDrivers.config.balance);
 
         $('.layout-header .dx-button').hide();
 
