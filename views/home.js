@@ -34,6 +34,7 @@ TaxiDrivers.home = function(params) {
     function viewShown() {
 
         console.warn('viewShown');
+        console.warn('TaxiDrivers.config.balance ' + TaxiDrivers.config.balance);
 
         $('.layout-header .dx-button').hide();
 
