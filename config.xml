@@ -63,7 +63,7 @@
     <icon src="Resources/PackageIcons.iOS.icon@2x.png" gap:platform="ios" width="114" height="114" />
 
     <!--iPad icons-->
-    <icon src="PackageIcons.iOS.Default-72.png"  gap:platform="ios" width="72" height="72" />
+    <icon src="Resources/PackageIcons.iOS.Default-72.png"  gap:platform="ios" width="72" height="72" />
     <!--<icon src="Resources/PackageIcons.iOS.icon@2x.png" gap:platform="ios" width="114" height="114" />-->
 
     <!--Android splashes-->
