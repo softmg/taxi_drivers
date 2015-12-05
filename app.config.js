@@ -5,6 +5,7 @@
         "backend_uri_send_email": "send_email",
         "backend_uri_push_token": "get_token",
         "backend_uri_balance": "get_driver_balance",
+        "backend_uri_detail_balance": "get_driver_transactions",
         "push_token": "",
         "title": "",
         "balance_update": 6000,

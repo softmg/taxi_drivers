@@ -2,7 +2,7 @@
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
-    dev_log('start init js');
+  //  dev_log('start init js');
 
     TaxiDrivers.app = new DevExpress.framework.html.HtmlApplication({
         namespace: TaxiDrivers,
@@ -22,9 +22,9 @@
 
     function onDeviceReady() {
 
-        dev_log('device ready');
-
-        dev_log('start init config');
+       // storeWrite("push_token", 'test');
+       // _data_init['push'] = 'test';// закомментить потом
+       // pushToken = 'test';
 
         if(is_mobile)
         {
@@ -33,7 +33,8 @@
             if(!_data_init['push'])
             {
                 _initPush(function(pushToken){
-                    console.warn('write push_token: ' + pushToken);
+                        //  dev_log('write push_token: ' + pushToken);
+                    //console.warn('write push_token: ' + pushToken);
                     storeWrite("push_token", pushToken);
                     TaxiDrivers.config.push_token = pushToken;
 
@@ -61,7 +62,7 @@
             if(!_data_init['config'] || _data_init['config'] == 'non_actual')
             {
                 _getBalance(token, true, function(){
-                    dev_log('get balance error!');
+                 //   dev_log('get balance error!');
                     TaxiDrivers.app.router.register(":view", { view: "home" });
                     TaxiDrivers.app.navigate("home");
                 });

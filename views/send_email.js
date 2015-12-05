@@ -17,7 +17,7 @@ TaxiDrivers.send_email = function(params) {
             dataType: 'jsonp',
             jsonp: "mycallback",
             error: function(x,e){
-                console.warn('токен устройства не отправлен на сервер');
+                //console.warn('токен устройства не отправлен на сервер');
                 if(x.status==0){
                     console.warn('You are offline!!\n Please Check Your Network.');
                 }else if(x.status==404){

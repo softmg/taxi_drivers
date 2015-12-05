@@ -84,7 +84,7 @@ var _getBalance = function(token, to_home, callback_error, callback_success)
                     },
         success: function(data){
 
-            dev_log('config success!');
+            //dev_log('config success!');
 
             storeWrite("date_config", new Date().valueOf());
 
@@ -102,6 +102,57 @@ var _getBalance = function(token, to_home, callback_error, callback_success)
                     callback_success(data.balance);
                 }
             }
+        }
+    })
+}
+
+var _getTransactions = function(token, callback_error, callback_success)
+{
+
+    var detail_balance_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_detail_balance;
+    var push_token = TaxiDrivers.config.push_token;
+    //console.warn('url get detail balance: ' + detail_balance_url);
+    //console.warn('push_token: ' + push_token);
+    $.ajax({
+        type: "get",
+        data:{
+            user_token: push_token,
+        },
+        dataType: 'jsonp',
+        url: detail_balance_url,
+        jsonp: "mycallback",
+        timeout: 3000,
+        error: function(x,e){
+            alert(x.status+4544);
+            if(x.status==0){
+                console.warn('You are offline!!\n Please Check Your Network.');
+            }else if(x.status==404){
+                console.warn('Requested URL not found.' + balance_url);
+            }else if(x.status==500){
+                console.warn('Internel Server Error.');
+            }else if(e=='parsererror'){
+                console.warn('Error.\nParsing JSON Request failed. '+x.status);
+            }else if(e=='timeout'){
+                console.warn('Request Time out.');
+            }else {
+                console.warn('Unknow Error.\n'+x.responseText);
+            }
+            if(typeof(callback_error) !== 'undefined')
+            {
+                callback_error();
+            }
+        },
+        success: function(data){
+            storeWrite("date_config", new Date().valueOf());
+
+            storeWrite("detail_balance", data.data);
+
+            TaxiDrivers.config.detail_balance   = data.data;
+
+            if(callback_success){
+                callback_success(data.data);
+            }
+
         }
     })
 }
@@ -173,7 +224,7 @@ var _sendToken = function(push_token, title, callback, callback_error)
 
 var _initLocalStore= function()
 {
-    dev_log('start init local store');
+  //  dev_log('start init local store');
 
     var config = true;
     var push = true;
@@ -210,14 +261,26 @@ var _initLocalStore= function()
         else title = false;
     });
 
-    dev_log('end init local store');
+    store.byKey('detail_balance').done(function(detail_balance) {
+        if(detail_balance && detail_balance.value)
+        {
+            TaxiDrivers.config.detail_balance  = detail_balance.value;
+        }
+        else
+        {
+            detail_balance = false;
+        }
+    });
+
+
+    // dev_log('end init local store');
 
     return {'config':config, 'push':push, 'title':title};
 }
 
 var _initPush= function(callback) {
 
-    dev_log('start init push');
+    //dev_log('start init push');
 
     pushNotification = window.plugins.pushNotification;
 
@@ -230,7 +293,7 @@ var _initPush= function(callback) {
         registerPushIOS(callback);
     }
 
-    dev_log('end init push');
+    //dev_log('end init push');
 }
 
 var _myAlert= function(info)

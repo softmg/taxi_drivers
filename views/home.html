@@ -2,6 +2,9 @@
     <div class="main-buttons" data-options="dxContent : { targetPlaceholder: 'content' }">
       <h1 data-bind="text: '@balance'"></h1>
 
+        <div class="button-wrap" data-bind="dxAction: '#detail_balance'">
+            <a style="text-decoration: none; color: #007aff; font-size: 22px;"  data-bind="dxAction: '#detail_balance'">Детализация</a>
+        </div>
       <div class="button-wrap">
         <div class="balance" data-bind="text: balance"></div>
       </div>
