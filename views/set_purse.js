@@ -1,21 +1,21 @@
 ﻿"use strict";
 
-TaxiDrivers.send_email = function(params) {
+TaxiDrivers.set_purse = function(params) {
 
-    var message = ko.observable('');
+    var purse = ko.observable('');
     var user_token = TaxiDrivers.config.push_token;
 
-    function sendEmail() {
+    function setPurse() {
 
-        var send_email_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_send_email;
+        var set_purse_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_set_purse;
 
         $.ajax({
             type: "GET",
             data:{
-                message: message(),
+                purse: purse(),
                 user_token: user_token
             },
-            url: send_email_url,
+            url: set_purse_url,
             dataType: 'jsonp',
             jsonp: "mycallback",
             error: function(x,e){
@@ -23,6 +23,11 @@ TaxiDrivers.send_email = function(params) {
                 if(x.status==0){
                     console.warn('You are offline!!\n Please Check Your Network.');
                 }else if(x.status==404){
+                   /* storeWrite("purse", purse());
+                    TaxiDrivers.config.purse = purse();
+                    TaxiDrivers.app.router.register(":view", { view: "home" });
+                    TaxiDrivers.app.navigate("home");
+                    */
                     console.warn('Requested URL not found.' + send_email_url);
                 }else if(x.status==500){
                     console.warn('Internel Server Error.');
@@ -36,7 +41,11 @@ TaxiDrivers.send_email = function(params) {
                 alert('Ошибка сообщения. Проверьте включен ли интернет на смартфоне!');
             },
             success: function(data){
-                alert('Сообщение успешно отправлено!');
+                storeWrite("purse", purse());
+                TaxiDrivers.config.purse = purse();
+                alert('Кошелёк успешно сохранён!');
+                TaxiDrivers.app.router.register(":view", { view: "home" });
+                TaxiDrivers.app.navigate("home");
             }
         })
     }
@@ -48,9 +57,9 @@ TaxiDrivers.send_email = function(params) {
     }
 
     return {
-        message: message,
+        purse: purse,
 
-        sendEmail: sendEmail,
+        setPurse: setPurse,
 
         viewShown: viewShown
     };

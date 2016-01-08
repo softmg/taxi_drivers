@@ -1,0 +1,24 @@
+<div data-options="dxView : { name: 'set_purse' }">
+
+    <div class="send_email" id="newLogScrollView" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
+        <div class="main-content">
+
+            <h2 data-bind="text: '@set_purse_message'"></h2>
+
+            <div class="dx-fieldset">
+                <div class="dx-field field_email">
+                    <div id="messageInput" class="dx-field-value" data-bind="dxTextBox: { value: purse, placeholder: '@set_purse_message_min' }"></div>
+                </div>
+                <div class="dx-field">
+                  <div class="button-wrap" data-bind="dxAction: setPurse">
+                    <div data-bind="dxButton: { text: '@send' }"></div>
+                  </div>
+                </div>
+            </div>
+
+            <div style='clear:both'></div>
+        </div>
+    </div>
+</div>
+
+

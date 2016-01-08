@@ -6,9 +6,14 @@
         "backend_uri_push_token": "get_token",
         "backend_uri_balance": "get_driver_balance",
         "backend_uri_detail_balance": "get_driver_transactions",
+        "backend_uri_set_purse": "set_qiwi_purse",
+        "backend_uri_get_purse": "get_qiwi_purse",
+        "backend_uri_cashout": "qiwi_cashout",
         "push_token": "",
         "title": "",
         "balance_update": 6000,
         "store_actual_time" : 100000,
+        "is_qiwi_driver": "",
+        "purse": ""
     }
 });

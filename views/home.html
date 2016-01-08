@@ -1,17 +1,31 @@
 <div data-options="dxView : { name: 'home', title: '@appletaxi' }">
-    <div class="main-buttons" data-options="dxContent : { targetPlaceholder: 'content' }">
-      <h1 data-bind="text: '@balance'"></h1>
+    <div class="main-buttons" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
+
+        <div class="purse">
+            <h1>Кошелёк:</h1>
+            <input type="button" style="font-size: 22px; background-color: yellow; width: 90%;" value="Ввести кошелек" data-bind="dxAction: '#set_purse'"/>
+            <h1 class="purse_data" data-bind="text: '@purse'"></h1>
+
+            <div class="button-wrap" data-bind="dxAction: '#cashout'">
+                <div data-bind="dxButton: { text: '@cashout' }"></div>
+            </div>
+        </div>
+
+        <h1 data-bind="text: '@balance'"></h1>
 
         <div class="button-wrap" data-bind="dxAction: '#detail_balance'">
-            <a style="text-decoration: none; color: #007aff; font-size: 22px;"  data-bind="dxAction: '#detail_balance'">Детализация</a>
+            <input type="button" style="font-size: 22px; background-color: yellow; width: 90%;" value="Детализация" data-bind="dxAction: '#detail_balance'"/>
         </div>
-      <div class="button-wrap">
-        <div class="balance" data-bind="text: balance"></div>
-      </div>
 
-      <div class="button-wrap" data-bind="dxAction: '#send_email'">
-        <div data-bind="dxButton: { text: '@write' }"></div>
-      </div>
+        <div class="balance_block">
+              <div class="button-wrap">
+                <div class="balance" data-bind="text: balance"></div>
+              </div>
+
+              <div class="button-wrap" data-bind="dxAction: '#send_email'">
+                <div data-bind="dxButton: { text: '@write' }"></div>
+              </div>
+        </div>
     </div>
 </div>
 

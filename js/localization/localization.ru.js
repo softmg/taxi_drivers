@@ -14,6 +14,10 @@
         "server_problem": "Проблема соединения с сервером!",
         "send": "Отправить",
         "send_email": "Написать",
+        "set_purse_message" : "Введите номер кошелька",
+        "set_purse_message_min" : "Введите номер",
+        "cashout": "Вывод денег",
+        "cashout_text": "Введите сумму",
 
         "Cancel" : "Отменить",
         "Done" : "Применить",

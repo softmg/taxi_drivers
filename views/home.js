@@ -3,6 +3,8 @@
 TaxiDrivers.home = function(params) {
 
     var balance = TaxiDrivers.config.balance;
+    var is_qiwi_driver = TaxiDrivers.config.is_qiwi_driver;
+    var purse = TaxiDrivers.config.purse;
 
     function updateBalance(balance)
     {
@@ -31,6 +33,23 @@ TaxiDrivers.home = function(params) {
         updateBalance(balance);
     }
 
+    function updatePurseInfo(purse)
+    {
+        if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
+            $('.balance_block').hide();
+            if(purse != '' && typeof purse !== 'undefined') {
+                $('.purse input').hide();
+                $('.purse .purse_data').text(purse);
+            } else {
+                $('.purse .purse_data').hide();
+                $('.purse input').show();
+            }
+        } else {
+            $('.purse').hide();
+        }
+
+    }
+
     function viewShown() {
 
         balance = TaxiDrivers.config.balance;
@@ -39,6 +58,12 @@ TaxiDrivers.home = function(params) {
         $('.layout-header .dx-button').hide();
 
         updateBalance(balance);
+
+        _getPurse(TaxiDrivers.config.push_token, false, function(purse){
+            updatePurseInfo(purse);
+        });
+
+
 
         if(!interval)
         {
@@ -57,7 +82,7 @@ TaxiDrivers.home = function(params) {
 
     return {
         balance: balance,
-
+        purse: purse,
         beforeViewSetup: beforeViewSetup,
         viewShown: viewShown,
     };

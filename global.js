@@ -52,8 +52,6 @@ var _getBalance = function(token, to_home, callback_error, callback_success)
     var balance_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_balance;
     var push_token = TaxiDrivers.config.push_token;
 
-    console.warn('url get balance: ' + balance_url);
-    console.warn('push_token: ' + push_token);
     $.ajax({
         type: "get",
         data:{
@@ -123,7 +121,6 @@ var _getTransactions = function(token, callback_error, callback_success)
         jsonp: "mycallback",
         timeout: 3000,
         error: function(x,e){
-            alert(x.status+4544);
             if(x.status==0){
                 console.warn('You are offline!!\n Please Check Your Network.');
             }else if(x.status==404){
@@ -153,6 +150,50 @@ var _getTransactions = function(token, callback_error, callback_success)
                 callback_success(data.data);
             }
 
+        }
+    })
+}
+
+var _getPurse = function(token, callback_error, callback_success)
+{
+    var purse_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_get_purse;
+    var push_token = TaxiDrivers.config.push_token;
+
+    $.ajax({
+        type: "get",
+        data:{
+            user_token: push_token,
+        },
+        dataType: 'jsonp',
+        url: purse_url,
+        jsonp: "mycallback",
+        timeout: 3000,
+        error: function(x,e){
+
+            if(x.status==0){
+                alert('You are offline!!\n Please Check Your Network.');
+            }else if(x.status==404){
+                alert('Requested URL not found.' + balance_url);
+            }else if(x.status==500){
+                alert('Internel Server Error.');
+            }else if(e=='parsererror'){
+                alert('Error.\nParsing JSON Request failed. '+x.status);
+            }else if(e=='timeout'){
+                alert('Request Time out.');
+            }else {
+                alert('Unknow Error.\n'+x.responseText);
+            }
+
+        },
+        success: function(data){
+
+            storeWrite("purse", data.purse);
+
+            TaxiDrivers.config.purse   = data.purse;
+
+            if(callback_success){
+                callback_success(data.purse);
+            }
         }
     })
 }
@@ -215,7 +256,7 @@ var _sendToken = function(push_token, title, callback, callback_error)
             {
                 if(typeof(callback) !== 'undefined')
                 {
-                  callback();
+                  callback(data);
                 }
             }
         }
@@ -229,6 +270,8 @@ var _initLocalStore= function()
     var config = true;
     var push = true;
     var title = true;
+    var is_qiwi_driver = true;
+    var purse = true;
 
     store = new DevExpress.data.LocalStore({
         name: "mld_taxi_drivers",
@@ -272,10 +315,26 @@ var _initLocalStore= function()
         }
     });
 
+    store.byKey('is_qiwi_driver').done(function(is_qiwi_driver) {
+        if(is_qiwi_driver && is_qiwi_driver.value) TaxiDrivers.config.is_qiwi_driver  = is_qiwi_driver.value;
+        else is_qiwi_driver = false;
+    });
+
+    store.byKey('purse').done(function(purse) {
+        if(purse && purse.value) TaxiDrivers.config.purse  = purse.value;
+        else purse = false;
+    });
+
 
     // dev_log('end init local store');
+    //title = false; //ПОТОМ ЗАКОММЕнтить
+    /*purse = false;
+    storeWrite('purse', ''); // заменить на is_qiwi_driver
+    is_qiwi_driver = false;
+    TaxiDrivers.config.is_qiwi_driver = '';  // заменить на is_qiwi_driver
+    */
 
-    return {'config':config, 'push':push, 'title':title};
+    return {'config':config, 'push':push, 'title':title, 'is_qiwi_driver':is_qiwi_driver, 'purse':purse};
 }
 
 var _initPush= function(callback) {

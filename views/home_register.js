@@ -12,11 +12,16 @@ TaxiDrivers.home_register = function(params) {
 
         var title_cur = title();
 
-        _sendToken(push_token, title_cur, function(){
+        _sendToken(push_token, title_cur, function(data){
                // console.warn('store write title: ' + title_cur);
 
                 storeWrite('title', title_cur);
                 TaxiDrivers.config.title = title_cur;
+
+                storeWrite('is_qiwi_driver', data.is_qiwi_driver); // заменить на is_qiwi_driver
+                TaxiDrivers.config.is_qiwi_driver = data.is_qiwi_driver;  // заменить на is_qiwi_driver
+
+                _getPurse(push_token);
 
                 _getBalance(push_token, true, function(){
                   //  dev_log('get balance error!');
