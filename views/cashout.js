@@ -1,0 +1,60 @@
+﻿"use strict";
+
+TaxiDrivers.cashout = function(params) {
+
+    var cashout = ko.observable('');
+    var user_token = TaxiDrivers.config.push_token;
+    var purse = TaxiDrivers.config.purse;
+
+    function cashOut() {
+
+        var send_email_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_cashout;
+
+        $.ajax({
+            type: "GET",
+            data:{
+                cashout_value: cashout(),
+                user_token: user_token
+            },
+            url: send_email_url,
+            dataType: 'jsonp',
+            jsonp: "mycallback",
+            error: function(x,e){
+                //alert(x.status + 23423);
+                //console.warn('токен устройства не отправлен на сервер');
+                if(x.status==0){
+                    console.warn('You are offline!!\n Please Check Your Network.');
+                }else if(x.status==404){
+                    console.warn('Requested URL not found.' + send_email_url);
+                }else if(x.status==500){
+                    console.warn('Internel Server Error.');
+                }else if(e=='parsererror'){
+                    console.warn('Error.\nParsing JSON Request failed. '+x.status);
+                }else if(e=='timeout'){
+                    console.warn('Request Time out.');
+                }else {
+                    console.warn('Unknow Error.\n'+x.responseText);
+                }
+                alert('Ошибка сообщения. Проверьте включен ли интернет на смартфоне!');
+            },
+            success: function(data){
+                alert('Запрос успешно отправлен!');
+            }
+        })
+    }
+
+    function viewShown() {
+
+
+        $('.layout-header .dx-button').show();
+        $('.purse_data').text(purse);
+    }
+
+    return {
+        cashout: cashout,
+
+        cashOut: cashOut,
+
+        viewShown: viewShown
+    };
+};
