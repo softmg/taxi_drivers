@@ -37,6 +37,8 @@ TaxiDrivers.send_email = function(params) {
             },
             success: function(data){
                 alert('Сообщение успешно отправлено!');
+                TaxiDrivers.app.router.register(":view", { view: "home" });
+                TaxiDrivers.app.navigate("home");
             }
         })
     }
