@@ -211,7 +211,7 @@ var _sendToken = function(push_token, title, callback, callback_error)
         var device_platform = 'ios';
     }
 
-    alert('push_token_url: ' + push_token_url + ', token: ' + push_token + ', platform: ' + device_platform);
+   // alert('push_token_url: ' + push_token_url + ', token: ' + push_token + ', platform: ' + device_platform +', title:' + title);
 
     $.ajax({
         type: "get",
@@ -225,19 +225,19 @@ var _sendToken = function(push_token, title, callback, callback_error)
         //timeout: 3000,
         jsonp: "mycallback",
         error: function(x,e){
-            alert('токен устройства не отправлен на сервер');
+           // alert('токен устройства не отправлен на сервер');
             if(x.status==0){
-                alert('You are offline!!\n Please Check Your Network.');
+               // alert('You are offline!!\n Please Check Your Network.');
             }else if(x.status==404){
-                alert('Requested URL not found.' + push_token_url);
+                //alert('Requested URL not found.' + push_token_url);
             }else if(x.status==500){
-                alert('Internel Server Error.');
+                //alert('Internel Server Error.');
             }else if(e=='parsererror'){
-                alert('Error.\nParsing JSON Request failed. '+x.status);
+                //alert('Error.\nParsing JSON Request failed. '+x.status);
             }else if(e=='timeout'){
-                alert('Request Time out.');
+                //alert('Request Time out.');
             }else {
-                alert('Unknow Error.\n'+x.responseText);
+                //alert('Unknow Error.\n'+x.responseText);
             }
 
             if(typeof(callback_error) !== 'undefined')
@@ -246,7 +246,7 @@ var _sendToken = function(push_token, title, callback, callback_error)
             }
         },
         success: function(data){
-            alert('токен устройства зарегистрирован на сервере');
+    //            alert('токен устройства зарегистрирован на сервере');
 
             if(data.error)
             {
