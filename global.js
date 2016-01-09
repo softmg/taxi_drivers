@@ -214,7 +214,7 @@ var _sendToken = function(push_token, title, callback, callback_error)
     alert('push_token_url: ' + push_token_url + ', token: ' + push_token + ', platform: ' + device_platform);
 
     $.ajax({
-        type: "GET",
+        type: "get",
         data:{
             platform: device_platform,
             user_token: push_token,
