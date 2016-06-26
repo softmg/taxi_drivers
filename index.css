@@ -300,3 +300,6 @@ body
 .detail_balance_div.dx-content {
     font-size: 24px;
 }
+.cashout #messageInput {
+    width: 100%;
+}

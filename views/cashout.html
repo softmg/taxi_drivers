@@ -1,6 +1,6 @@
 <div data-options="dxView : { name: 'cashout', title: '@send_email' }">
 
-    <div class="send_email" id="newLogScrollView" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
+    <div class="send_email cashout" id="newLogScrollView" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="main-content">
 
             <!--<div class="phone-value" data-bind="text: dis_phone"></div>-->
@@ -9,7 +9,7 @@
 
             <div class="dx-fieldset">
                 <div class="dx-field field_email">
-                    <div id="messageInput" class="dx-field-value" data-bind="dxTextBox: { value: cashout, placeholder: '@cashout_text' }"></div>
+                    <div id="messageInput" class="dx-field-value " data-bind="dxTextArea: { value: cashout, placeholder: '@cashout_text' }"></div>
                 </div>
                 <div class="dx-field">
                   <div class="button-wrap" data-bind="dxAction: cashOut">
