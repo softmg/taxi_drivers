@@ -36,7 +36,7 @@ TaxiDrivers.send_email = function(params) {
                 alert('Ошибка сообщения. Проверьте включен ли интернет на смартфоне!');
             },
             success: function(data){
-                alert('Сообщение успешно отправлено!');
+                alert(data.status == 'email_sent' ? 'Ваше сообщение успешно отправлено' :  data.status);
                 TaxiDrivers.app.router.register(":view", { view: "home" });
                 TaxiDrivers.app.navigate("home");
             }
