@@ -3,8 +3,8 @@
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0"
     id="ru.softmg.appletaxidrivers"
-    versionCode="400"
-    version="0.0.4">
+    versionCode="500"
+    version="0.0.5">
 
     <!--<gap:plugin name="org.apache.cordova.globalization" version="0.2.6" />-->
     <gap:plugin name="org.apache.cordova.device" />
