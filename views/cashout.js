@@ -38,7 +38,7 @@ TaxiDrivers.cashout = function(params) {
                 alert('Ошибка сообщения. Проверьте включен ли интернет на смартфоне!');
             },
             success: function(data){
-                alert('Запрос успешно отправлен! Ожидайте получения денег.');
+                alert(data.status == 'email_sent' ? 'Запрос успешно отправлен! Ожидайте получения денег.' :  data.status);
                 TaxiDrivers.app.router.register(":view", { view: "home" });
                 TaxiDrivers.app.navigate("home");
             }
