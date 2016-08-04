@@ -6,8 +6,16 @@
             <input type="button" style="font-size: 22px; background-color: yellow; width: 90%;" value="Ввести кошелек" data-bind="dxAction: '#set_purse'"/>
             <h1 class="purse_data" data-bind="text: '@purse'"></h1>
 
-            <div class="button-wrap" data-bind="dxAction: '#cashout'">
+            <div class="button-wrap cashout_button" data-bind="dxAction: '#cashout'">
                 <div data-bind="dxButton: { text: '@cashout' }"></div>
+            </div>
+
+            <div class="cashout_process">
+                <p>Ваша заявка в процессе обработки</p>
+                <p>Ожидайте вывода денежных средств</p>
+            </div>
+            <div class="no_documents">
+                <p>Ждём Вас в офис для оформления документов</p>
             </div>
         </div>
 
@@ -25,6 +33,19 @@
               <div class="button-wrap" data-bind="dxAction: '#send_email'">
                 <div data-bind="dxButton: { text: '@write' }"></div>
               </div>
+        </div>
+
+        <div class="cashout_success">
+            <p>Идентифицированный пользователь</p>
+            <p>Вывод денежных средств доступен</p>
+        </div>
+        <div class="cashout_error">
+            <p>Вывод денежных средств невозможен</p>
+            <p>Требуется пройти идентификацию</p>
+            <p>8 (499) 713-91-91</p>
+            <p>Проезд Энтузиастов, д.5</p>
+            <p>с 10:00 до 16:00</p>
+            <p>AppleTaxi</p>
         </div>
     </div>
 </div>

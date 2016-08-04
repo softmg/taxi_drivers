@@ -61,6 +61,8 @@
         {
             if(!_data_init['config'] || _data_init['config'] == 'non_actual')
             {
+                _getStatus(token);
+
                 _getBalance(token, true, function(){
                  //   dev_log('get balance error!');
                     TaxiDrivers.app.router.register(":view", { view: "home" });

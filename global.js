@@ -104,6 +104,57 @@ var _getBalance = function(token, to_home, callback_error, callback_success)
     })
 }
 
+var _getStatus = function(token, callback_success)
+{
+    var status_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_get_status;
+    var push_token = TaxiDrivers.config.push_token;
+
+    $.ajax({
+        type: "get",
+        data:{
+            user_token: push_token,
+        },
+        dataType: 'jsonp',
+        url: status_url,
+        jsonp: "mycallback",
+        timeout: 3000,
+        error: function(x,e){
+            if(x.status==0){
+                console.warn('You are offline!!\n Please Check Your Network.');
+            }else if(x.status==404){
+                console.warn('Requested URL not found.' + balance_url);
+            }else if(x.status==500){
+                console.warn('Internel Server Error.');
+            }else if(e=='parsererror'){
+                console.warn('Error.\nParsing JSON Request failed. '+x.status);
+            }else if(e=='timeout'){
+                console.warn('Request Time out.');
+            }else {
+                console.warn('Unknow Error.\n'+x.responseText);
+            }
+            if(typeof(callback_error) !== 'undefined')
+            {
+                callback_error();
+            }
+        },
+        success: function(data){
+
+            //Проверяем, может ли он выводить деньги или нет
+            storeWrite('can_cashout', data.can_cashout);
+            TaxiDrivers.config.can_cashout = data.can_cashout;
+
+            //Проверяем, может ли он выводить деньги или нет
+            storeWrite('identified', data.identified);
+            TaxiDrivers.config.identified = data.identified;
+
+            if(callback_success){
+                callback_success(data);
+            }
+
+        }
+    })
+}
+
 var _getTransactions = function(token, callback_error, callback_success)
 {
 
@@ -273,6 +324,7 @@ var _initLocalStore= function()
     var is_qiwi_driver = true;
     var purse = true;
 
+
     store = new DevExpress.data.LocalStore({
         name: "mld_taxi_drivers",
         key: "name"
@@ -325,7 +377,16 @@ var _initLocalStore= function()
         else purse = false;
     });
 
+    store.byKey('can_cashout').done(function(can_cashout) {
+        if(can_cashout ) TaxiDrivers.config.can_cashout  = can_cashout.value;
+        else can_cashout = false;
+    });
 
+    store.byKey('identified').done(function(identified) {
+        if(identified ) TaxiDrivers.config.identified  = identified.value;
+        else identified = false;
+    });
+    
     // dev_log('end init local store');
     //title = false; //ПОТОМ ЗАКОММЕнтить
     /*purse = false;

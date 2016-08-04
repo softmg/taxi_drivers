@@ -5,10 +5,11 @@ TaxiDrivers.home = function(params) {
     var balance = TaxiDrivers.config.balance;
     var is_qiwi_driver = TaxiDrivers.config.is_qiwi_driver;
     var purse = TaxiDrivers.config.purse;
+    var can_cashout = TaxiDrivers.config.can_cashout;
+    var identified = TaxiDrivers.config.identified;
 
     function updateBalance(balance)
     {
-        //console.warn('update balance ' + balance);
 
         $('.balance').removeClass('pozitive').removeClass('negative');
 
@@ -26,10 +27,31 @@ TaxiDrivers.home = function(params) {
 
     }
 
+    function ShowHideCashoutIdentify(can_cashout, identified)
+    {
+        if(!identified){
+            $('.no_documents').show();
+            $('.cashout_error').show();
+            $('.cashout_process').hide();
+            $('.cashout_button').hide();
+        }
+        else {
+            $('.cashout_error').hide();
+            $('.no_documents').hide();
+            if (can_cashout){
+                $('.cashout_success').show();
+                $('.cashout_button').show();
+                $('.cashout_process').hide();
+            } else {
+                $('.cashout_button').hide();
+                $('.cashout_process').show();
+                $('.cashout_success').hide();
+            }
+        }
+    }
+
     function beforeViewSetup()
     {
-        //console.warn('beforeView');
-
         updateBalance(balance);
     }
 
@@ -59,6 +81,8 @@ TaxiDrivers.home = function(params) {
 
         updateBalance(balance);
 
+        ShowHideCashoutIdentify(can_cashout, identified);
+
         _getPurse(TaxiDrivers.config.push_token, false, function(purse){
             updatePurseInfo(purse);
         });
@@ -68,11 +92,16 @@ TaxiDrivers.home = function(params) {
         if(!interval)
         {
             interval = window.setInterval(function(){
-                    //alert(TaxiDrivers.config.push_token);
-                   // console.warn('update driver balance');
                     _getBalance(TaxiDrivers.config.push_token, false, false, function(balance){
                         updateBalance(balance);
                     });
+
+                    if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
+                        _getStatus(TaxiDrivers.config.push_token, function(data){
+                            ShowHideCashoutIdentify(data.can_cashout, data.identified);
+                        });
+
+                    }
                 },
                 TaxiDrivers.config.balance_update
             );

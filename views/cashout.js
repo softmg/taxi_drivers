@@ -39,6 +39,11 @@ TaxiDrivers.cashout = function(params) {
             },
             success: function(data){
                 alert(data.status == 'email_sent' ? 'Запрос успешно отправлен! Ожидайте получения денег.' :  data.status);
+                // после успешного запроса не разрешаем больше сюда входить
+
+                storeWrite('can_cashout', false);
+                TaxiDrivers.config.can_cashout = false;
+
                 TaxiDrivers.app.router.register(":view", { view: "home" });
                 TaxiDrivers.app.navigate("home");
             }
