@@ -39,14 +39,13 @@ TaxiDrivers.home = function(params) {
         else {
             $('.cashout_error').hide();
             $('.no_documents').hide();
+            $('.cashout_success').show();
             if (can_cashout){
-                $('.cashout_success').show();
                 $('.cashout_button').show();
                 $('.cashout_process').hide();
             } else {
                 $('.cashout_button').hide();
                 $('.cashout_process').show();
-                $('.cashout_success').hide();
             }
         }
     }
