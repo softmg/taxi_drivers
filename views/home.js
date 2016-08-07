@@ -81,7 +81,9 @@ TaxiDrivers.home = function(params) {
 
         updateBalance(balance);
 
-        ShowHideCashoutIdentify(can_cashout, identified);
+        if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
+            ShowHideCashoutIdentify(can_cashout, identified);
+        }
 
         _getPurse(TaxiDrivers.config.push_token, false, function(purse){
             updatePurseInfo(purse);
