@@ -301,7 +301,9 @@ body
     font-size: 24px;
 }
 .cashout #messageInput {
-    width: 100%;
+    width: 90%;
+    border: 0px;
+    font-size: 20px;
 }
 
 .cashout_process, .no_documents {

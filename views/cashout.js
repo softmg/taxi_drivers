@@ -2,7 +2,7 @@
 
 TaxiDrivers.cashout = function(params) {
 
-    var cashout = ko.observable('');
+    //var cashout = ko.observable('');
     var user_token = TaxiDrivers.config.push_token;
     var purse = TaxiDrivers.config.purse;
 
@@ -13,7 +13,7 @@ TaxiDrivers.cashout = function(params) {
         $.ajax({
             type: "GET",
             data:{
-                cashout_value: cashout(),
+                cashout_value: $('#messageInput').val(),//cashout(),
                 user_token: user_token
             },
             url: send_email_url,
@@ -41,11 +41,11 @@ TaxiDrivers.cashout = function(params) {
                 alert(data.status == 'email_sent' ? 'Запрос успешно отправлен! Ожидайте получения денег.' :  data.status);
                 // после успешного запроса не разрешаем больше сюда входить
 
-                storeWrite('can_cashout', false);
-                TaxiDrivers.config.can_cashout = false;
+               // storeWrite('can_cashout', false);
+               // TaxiDrivers.config.can_cashout = false;
 
-                TaxiDrivers.app.router.register(":view", { view: "home" });
-                TaxiDrivers.app.navigate("home");
+                //TaxiDrivers.app.router.register(":view", { view: "home" });
+                //TaxiDrivers.app.navigate("home");
             }
         })
     }
@@ -58,7 +58,7 @@ TaxiDrivers.cashout = function(params) {
     }
 
     return {
-        cashout: cashout,
+        //cashout: cashout,
 
         cashOut: cashOut,
 
