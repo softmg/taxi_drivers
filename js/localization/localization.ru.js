@@ -17,7 +17,7 @@
         "set_purse_message" : "Введите номер кошелька",
         "set_purse_message_min" : "916-345-34-67",
         "cashout": "Вывод денег",
-        "cashout_text": "Введите сообщение/сумму",
+        "cashout_text": "Введите сумму",
 
         "Cancel" : "Отменить",
         "Done" : "Применить",

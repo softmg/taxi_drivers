@@ -10,6 +10,7 @@ TaxiDrivers.cashout = function(params) {
 
         var send_email_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_cashout;
 
+        $('.cashoutButton').hide();
         $.ajax({
             type: "GET",
             data:{
@@ -36,9 +37,12 @@ TaxiDrivers.cashout = function(params) {
                     console.warn('Unknow Error.\n'+x.responseText);
                 }
                 alert('Ошибка сообщения. Проверьте включен ли интернет на смартфоне!');
+                $('.cashoutButton').show();
             },
             success: function(data){
                 alert(data.status == 'email_sent' ? 'Запрос успешно отправлен! Ожидайте получения денег.' :  data.error);
+
+                $('.cashoutButton').show();
                 // после успешного запроса не разрешаем больше сюда входить
 
                // storeWrite('can_cashout', false);
