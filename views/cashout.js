@@ -40,16 +40,29 @@ TaxiDrivers.cashout = function(params) {
                 $('.cashoutButton').show();
             },
             success: function(data){
-                alert(data.status == 'email_sent' ? 'Запрос успешно отправлен! Ожидайте получения денег.' :  data.error);
+                var message;
+                if(data.status == 'email_sent') {
+                    message = 'Запрос успешно отправлен! Ожидайте получения денег. ';
+                    if (data.payment_id) {
+                        message = message + 'Ваш номер перевода: ' + data.payment_id;
+                    }
+                }
+                else {
+                    message = data.error;
+                }
+                alert(message);
 
                 $('.cashoutButton').show();
                 // после успешного запроса не разрешаем больше сюда входить
 
                // storeWrite('can_cashout', false);
                // TaxiDrivers.config.can_cashout = false;
-
-                //TaxiDrivers.app.router.register(":view", { view: "home" });
-                //TaxiDrivers.app.navigate("home");
+                if(data.status == 'email_sent') {
+                    storeWrite('can_cashout', false);
+                    TaxiDrivers.config.can_cashout = false;
+                    TaxiDrivers.app.router.register(":view", {view: "home"});
+                    TaxiDrivers.app.navigate("home");
+                }
             }
         })
     }
