@@ -26,7 +26,7 @@
         Soft Media Group
     </author>
 
-    <preference name="phonegap-version" value="3.6.3" />
+    <preference name="phonegap-version" value="cli-6.3.0" />
     <!--
     If you do not want any permissions to be added to your app, add the
     following tag to your config.xml; you will still have the INTERNET
