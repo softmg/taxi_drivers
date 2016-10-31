@@ -10,7 +10,9 @@
     });
 
     //mobile
-    document.addEventListener("deviceready", onDeviceReady, false);
+    //document.addEventListener("deviceready", onDeviceReady, true);
+    //костыль, так как перестал запускаться deviceready
+    onDeviceReady();
 
     //test browser
     $(document).ready(function(){
