@@ -7,14 +7,14 @@
     version="0.0.7">
 
     <!--<gap:plugin name="org.apache.cordova.globalization" version="0.2.6" />-->
-    <gap:plugin name="cordova-plugin-device" />
+    <gap:plugin name="org.apache.cordova.device" source="npm"/>
 
-    <gap:plugin name="cordova-plugin-dialogs" />
-    <gap:plugin name="cordova-plugin-splashscreen"  />
-    <gap:plugin name="com.phonegap.plugins.PushPlugin"/>
+    <gap:plugin name="org.apache.cordova.dialogs" source="npm"/>
+    <gap:plugin name="org.apache.cordova.splashscreen"  source="npm"/>
+    <gap:plugin name="com.phonegap.plugins.PushPlugin" source="npm"/>
     <!--<gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />-->
 
-    <gap:plugin name="cordova-plugin-globalization"/>
+    <gap:plugin name="org.apache.cordova.globalization" source="npm"/>
 
     <name>AT Drivers</name>
 
