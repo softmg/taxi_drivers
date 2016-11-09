@@ -16,6 +16,8 @@
 
     <gap:plugin name="cordova-plugin-globalization" source="npm"/>
 
+    <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+
     <name>AT Drivers</name>
 
     <description>
@@ -78,6 +80,6 @@
     <gap:splash src="Resources/PackageIcons.iOS.Default@2x~iphone.png" gap:platform="ios" width="640" height="960" />
     <gap:splash src="Resources/PackageIcons.iOS.Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
 
-    <access origin="*"/>
+    <allow-navigation href="*" />
 
 </widget>
