@@ -2,9 +2,9 @@
 <widget
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0"
-    id="ru.softmg.appletaxidrivers2"
-    versionCode="100"
-    version="0.0.1">
+    id="ru.softmg.appletaxidrivers"
+    versionCode="700"
+    version="0.0.7">
 
     <!--<gap:plugin name="org.apache.cordova.globalization" version="0.2.6" />-->
     <gap:plugin name="cordova-plugin-device" source="npm"/>

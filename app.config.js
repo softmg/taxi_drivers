@@ -16,6 +16,7 @@
         "store_actual_time" : 100000,
         "is_qiwi_driver": "",
         "purse": "",
-        "can_cashout": ""
-    }
+        "can_cashout": "",
+        "can_cashout_update": true
+        }
 });

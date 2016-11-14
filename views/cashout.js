@@ -11,6 +11,15 @@ TaxiDrivers.cashout = function(params) {
         var send_email_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_cashout;
 
         $('.cashoutButton').hide();
+
+        storeWrite('can_cashout', false);
+        TaxiDrivers.config.can_cashout = false;
+        TaxiDrivers.app.router.register(":view", {view: "home"});
+        TaxiDrivers.app.navigate("home");
+
+        //Блокируем обновление статуса по выводу денег пока не получим результат ( не важно положительный или отрицательный )
+        TaxiDrivers.config.can_cashout_update = false;
+
         $.ajax({
             type: "GET",
             data:{
@@ -53,16 +62,19 @@ TaxiDrivers.cashout = function(params) {
                 alert(message);
 
                 $('.cashoutButton').show();
+
+                //Разрешаем апдейт статуса возможности снятия средств
+                TaxiDrivers.config.can_cashout_update = true;
                 // после успешного запроса не разрешаем больше сюда входить
 
                // storeWrite('can_cashout', false);
                // TaxiDrivers.config.can_cashout = false;
-                if(data.status == 'email_sent') {
+                /*if(data.status == 'email_sent') {
                     storeWrite('can_cashout', false);
                     TaxiDrivers.config.can_cashout = false;
                     TaxiDrivers.app.router.register(":view", {view: "home"});
                     TaxiDrivers.app.navigate("home");
-                }
+                }*/
             }
         })
     }

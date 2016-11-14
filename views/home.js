@@ -5,8 +5,8 @@ TaxiDrivers.home = function(params) {
     var balance = TaxiDrivers.config.balance;
     var is_qiwi_driver = TaxiDrivers.config.is_qiwi_driver;
     var purse = TaxiDrivers.config.purse;
-    var can_cashout = TaxiDrivers.config.can_cashout;
     var identified = TaxiDrivers.config.identified;
+    var is_qiwi_driver = TaxiDrivers.config.is_qiwi_driver;
 
     function updateBalance(balance)
     {
@@ -40,11 +40,11 @@ TaxiDrivers.home = function(params) {
             $('.cashout_error').hide();
             $('.no_documents').hide();
             $('.cashout_success').show();
+            $('.cashout_process').hide();
+            $('.cashout_button').hide();
             if (can_cashout){
                 $('.cashout_button').show();
-                $('.cashout_process').hide();
             } else {
-                $('.cashout_button').hide();
                 $('.cashout_process').show();
             }
         }
@@ -82,7 +82,8 @@ TaxiDrivers.home = function(params) {
         updateBalance(balance);
 
         if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
-            ShowHideCashoutIdentify(can_cashout, identified);
+             var can_cashout = TaxiDrivers.config.can_cashout;
+             ShowHideCashoutIdentify(can_cashout, identified);
         }
 
         _getPurse(TaxiDrivers.config.push_token, false, function(purse){
@@ -97,8 +98,9 @@ TaxiDrivers.home = function(params) {
                     _getBalance(TaxiDrivers.config.push_token, false, false, function(balance){
                         updateBalance(balance);
                     });
+                    var can_cashout_update = TaxiDrivers.config.can_cashout_update;
 
-                    if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
+                    if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined' && can_cashout_update) {
                         _getStatus(TaxiDrivers.config.push_token, function(data){
                             ShowHideCashoutIdentify(data.can_cashout, data.identified);
                         });
