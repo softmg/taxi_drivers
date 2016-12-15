@@ -19,6 +19,6 @@
         "purse": "",
         "can_cashout": "",
         "can_cashout_update": true,
-        "version": "0.0.9"
+        "version": "8.8.9"
         }
 });
