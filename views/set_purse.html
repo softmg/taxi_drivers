@@ -7,17 +7,23 @@
 
             <div class="dx-fieldset">
                 <div class="dx-field field_email">
-                    <div id="messageInput" class="dx-field-value" data-bind="dxTextBox: { value: purse, placeholder: '@set_purse_message_min' }"></div>
+                    <span class="phone_prefix">+7</span> <input class="mask" type="tel" data-bind="textInput: purse"/>
+    <!--                <div id="messageInput" class="dx-field-value" data-bind="dxTextBox: { value: purse, placeholder: '@set_purse_message_min' }"></div>-->
                 </div>
+
+
                 <div class="dx-field">
                   <div class="button-wrap" data-bind="dxAction: setPurse">
-                    <div data-bind="dxButton: { text: '@send' }"></div>
+                      <!--<div data-bind="dxButton: { text: '@save' }"></div>-->
+                      <input type="button" style="font-size: 22px; background-color: yellow; width: 90%;" value="Сохранить" />
+
                   </div>
                 </div>
             </div>
 
             <div style='clear:both'></div>
         </div>
+        <div class="view-footer" data-bind="text: version"></div>
     </div>
 </div>
 

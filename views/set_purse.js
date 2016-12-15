@@ -9,10 +9,22 @@ TaxiDrivers.set_purse = function(params) {
 
         var set_purse_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_set_purse;
 
+        var purse_param = purse().replace(/[^0-9]/gi, '');
+            if(purse_param.length < 10) {
+                alert('Введите корректный номер телефона');
+                if (!$('.mask').hasClass('error')) {
+                    $('.mask').addClass('error');
+                }
+                return true;
+            }
+            else {
+                purse_param = '7' + purse_param;
+            }
+
         $.ajax({
             type: "GET",
             data:{
-                purse: purse(),
+                purse: purse_param,
                 user_token: user_token
             },
             url: set_purse_url,
@@ -53,6 +65,15 @@ TaxiDrivers.set_purse = function(params) {
     function viewShown() {
 
         $('.layout-header .dx-button').show();
+        $(".mask").inputmask({
+                                "mask": "(999) 999-9999",
+                                "oncomplete": function(){ $(this).removeClass('error');},
+                                "onKeyValidation": function(key, result){
+                                                        if (!$(this).hasClass('error')) {
+                                                            $(this).addClass('error');
+                                                        }
+                                                    }
+        });
 
     }
 
@@ -61,6 +82,7 @@ TaxiDrivers.set_purse = function(params) {
 
         setPurse: setPurse,
 
-        viewShown: viewShown
+        viewShown: viewShown,
+        version: 'Version: ' + TaxiDrivers.config.version
     };
 };

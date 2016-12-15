@@ -43,5 +43,6 @@ TaxiDrivers.home_register = function(params) {
         title: title,
 
         register: register,
+        version: 'Version: ' + TaxiDrivers.config.version
     };
 };

@@ -45,6 +45,7 @@ TaxiDrivers.detail_balance = function(params) {
 
        // detailBalance: detailBalance,
 
-        viewShown: viewShown
+        viewShown: viewShown,
+        version: 'Version: ' + TaxiDrivers.config.version
     };
 };

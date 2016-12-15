@@ -10,6 +10,7 @@
         "backend_uri_get_purse": "get_qiwi_purse",
         "backend_uri_cashout": "qiwi_cashout_test",
         "backend_uri_get_status": "get_driver_status",
+        "backend_uri_app_version": "set_actual_app_version",
         "push_token": "",
         "title": "",
         "balance_update": 6000,
@@ -17,6 +18,7 @@
         "is_qiwi_driver": "",
         "purse": "",
         "can_cashout": "",
-        "can_cashout_update": true
+        "can_cashout_update": true,
+        "version": "0.0.9"
         }
 });

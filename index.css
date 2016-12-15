@@ -327,3 +327,39 @@ body
     display: none;
     width: 90%;
 }
+.view-footer {
+    text-align: center;
+}
+
+
+.need_to_update {
+    font-size: 22px;
+    background-color: red;
+    width: 90%;
+    height: 100px;
+    text-align: center;
+    position: relative;
+    left: 5%;
+    border: 1px solid black;
+    color: white;
+    border-radius: 3px;
+}
+
+.send_email .mask {
+    width: 80%;
+    border: 1px solid blue;
+    font-size: 20px;
+    clear: both;
+}
+.send_email .mask.error {
+    border: 1px solid red;
+}
+
+.send_email .phone_prefix {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: 7px;
+    margin-right: 3px;
+}

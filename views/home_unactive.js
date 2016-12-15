@@ -13,5 +13,6 @@ TaxiDrivers.home_unactive = function(params) {
 
     return {
         activeConf: activeConf,
+        version: 'Version: ' + TaxiDrivers.config.version
     };
 };

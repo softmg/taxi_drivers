@@ -55,16 +55,20 @@ TaxiDrivers.cashout = function(params) {
                     if (data.payment_id) {
                         message = message + 'Ваш номер перевода: ' + data.payment_id;
                     }
+                    setInterval("TaxiDrivers.config.can_cashout_update = true;", 60000);
                 }
                 else {
                     message = data.error;
+                    TaxiDrivers.config.can_cashout_update = true;
                 }
                 alert(message);
 
                 $('.cashoutButton').show();
 
                 //Разрешаем апдейт статуса возможности снятия средств
-                TaxiDrivers.config.can_cashout_update = true;
+               // TaxiDrivers.config.can_cashout_update = true;
+
+
                 // после успешного запроса не разрешаем больше сюда входить
 
                // storeWrite('can_cashout', false);
@@ -91,6 +95,7 @@ TaxiDrivers.cashout = function(params) {
 
         cashOut: cashOut,
 
-        viewShown: viewShown
+        viewShown: viewShown,
+        version: 'Version: ' + TaxiDrivers.config.version
     };
 };

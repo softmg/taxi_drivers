@@ -14,12 +14,13 @@
         "server_problem": "Проблема соединения с сервером!",
         "send": "Отправить",
         "send_email": "Написать",
-        "set_purse_message" : "Введите номер кошелька",
+        "set_purse_message" : "Ваш Киви-кошелёк",
         "set_purse_message_min" : "916-345-34-67",
         "cashout": "Вывод денег",
         "cashout_text": "Введите сумму",
 
         "Cancel" : "Отменить",
         "Done" : "Применить",
+        "save": "Сохранить"
     }
 });

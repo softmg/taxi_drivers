@@ -249,6 +249,56 @@ var _getPurse = function(token, callback_error, callback_success)
     })
 }
 
+var _getAppVersion = function(callback_success)
+{
+    var status_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_app_version;
+    var push_token = TaxiDrivers.config.push_token;
+    var version = TaxiDrivers.config.version;
+    //alert(version);
+
+    $.ajax({
+        type: "get",
+        data:{
+            user_token: push_token,
+            version: version
+        },
+        dataType: 'jsonp',
+        url: status_url,
+        jsonp: "mycallback",
+        timeout: 3000,
+        error: function(x,e){
+            if(x.status==0){
+                console.warn('You are offline!!\n Please Check Your Network.');
+            }else if(x.status==404){
+                console.warn('Requested URL not found.' + balance_url);
+            }else if(x.status==500){
+                console.warn('Internel Server Error.');
+            }else if(e=='parsererror'){
+                console.warn('Error.\nParsing JSON Request failed. '+x.status);
+            }else if(e=='timeout'){
+                console.warn('Request Time out.');
+            }else {
+                console.warn('Unknow Error.\n'+x.responseText);
+            }
+            if(typeof(callback_error) !== 'undefined')
+            {
+                callback_error();
+            }
+        },
+        success: function(data){
+
+            //Проверяем, может ли он выводить деньги или нет
+            storeWrite('need_to_update', version != data.version);
+            TaxiDrivers.config.need_to_update = (version != data.version);
+
+            if(callback_success){
+                callback_success(data);
+            }
+
+        }
+    })
+}
+
 //after device push register send info to the server
 var _sendToken = function(push_token, title, callback, callback_error)
 {
@@ -386,12 +436,17 @@ var _initLocalStore= function()
         if(identified ) TaxiDrivers.config.identified  = identified.value;
         else identified = false;
     });
-    
+
+    store.byKey('need_to_update').done(function(need_to_update) {
+        if(need_to_update ) TaxiDrivers.config.need_to_update  = need_to_update.value;
+        else need_to_update = false;
+    });
+
     // dev_log('end init local store');
     //title = false; //ПОТОМ ЗАКОММЕнтить
-    /*purse = false;
-    storeWrite('purse', ''); // заменить на is_qiwi_driver
-    is_qiwi_driver = false;
+    //purse = false;
+    //storeWrite('purse', ''); // заменить на is_qiwi_driver
+    /*is_qiwi_driver = false;
     TaxiDrivers.config.is_qiwi_driver = '';  // заменить на is_qiwi_driver
     */
 

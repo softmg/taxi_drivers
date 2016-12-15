@@ -2,7 +2,7 @@
     <div class="main-buttons" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
 
         <div class="purse">
-            <h1>Кошелёк:</h1>
+            <h1>Ваш Киви-Кошелёк:</h1>
             <input type="button" style="font-size: 22px; background-color: yellow; width: 90%;" value="Ввести кошелек" data-bind="dxAction: '#set_purse'"/>
             <h1 class="purse_data" data-bind="text: '@purse'"></h1>
 
@@ -17,6 +17,9 @@
             <div class="no_documents">
                 <p>Ждём Вас в офис для оформления документов</p>
             </div>
+        </div>
+        <div class="button-wrap need_to_update">
+            Вам необходимо обновить приложение.<br /><b><a href="#" onclick="window.open('market://details?id=ru.softmg.appletaxidrivers', '_system','location=no')">Нажмите!</a></b>
         </div>
 
         <h1 data-bind="text: '@balance'"></h1>
@@ -48,6 +51,8 @@
             <p>AppleTaxi</p>
             <p>Необходимые документы: стс, паспорт, лицензия</p>
         </div>
+        <!--<div>Version: 0.0.9</div>-->
+        <div class="view-footer" data-bind="text: version"></div>
     </div>
 </div>
 

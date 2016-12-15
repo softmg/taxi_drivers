@@ -54,6 +54,7 @@ TaxiDrivers.send_email = function(params) {
 
         sendEmail: sendEmail,
 
-        viewShown: viewShown
+        viewShown: viewShown,
+        version: 'Version: ' + TaxiDrivers.config.version
     };
 };

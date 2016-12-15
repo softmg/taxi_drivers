@@ -14,13 +14,16 @@
                 </div>
                 <div class="dx-field">
                   <div class="button-wrap" data-bind="dxAction: cashOut">
-                    <div data-bind="dxButton: { text: '@send' }" class="cashoutButton"></div>
+                    <!--<div data-bind="dxButton: { text: '@send' }" class="cashoutButton"></div>-->
+                    <input type="button" style="font-size: 22px; background-color: yellow; width: 90%;" value="Отправить" />
+
                   </div>
                 </div>
             </div>
 
             <div style='clear:both'></div>
         </div>
+        <div class="view-footer" data-bind="text: version"></div>
     </div>
 </div>
 
