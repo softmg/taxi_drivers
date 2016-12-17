@@ -70,11 +70,11 @@ TaxiDrivers.home = function(params) {
         if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
             $('.balance_block').hide();
             if(purse != '' && typeof purse !== 'undefined') {
-                $('.purse input').hide();
+                $('.purse input.set_purse').hide();
                 $('.purse .purse_data').text(purse);
             } else {
                 $('.purse .purse_data').hide();
-                $('.purse input').show();
+                $('.purse input.set_purse').show();
             }
         } else {
             $('.purse').hide();

@@ -47,7 +47,7 @@ var storeWrite = function(name, value)
     });
 }
 
-var _getBalance = function(token, to_home, callback_error, callback_success)
+var _getBalance = function(token, to_home, callback_success)
 {
     var balance_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_balance;
     var push_token = TaxiDrivers.config.push_token;
@@ -75,10 +75,11 @@ var _getBalance = function(token, to_home, callback_error, callback_success)
                         }else {
                             console.warn('Unknow Error.\n'+x.responseText);
                         }
+                        /*
                         if(typeof(callback_error) !== 'undefined')
                         {
                           callback_error();
-                        }
+                        } */
                     },
         success: function(data){
 
@@ -122,7 +123,7 @@ var _getStatus = function(token, callback_success)
             if(x.status==0){
                 console.warn('You are offline!!\n Please Check Your Network.');
             }else if(x.status==404){
-                console.warn('Requested URL not found.' + balance_url);
+                console.warn('Requested URL not found.' + status_url);
             }else if(x.status==500){
                 console.warn('Internel Server Error.');
             }else if(e=='parsererror'){
@@ -175,7 +176,7 @@ var _getTransactions = function(token, callback_error, callback_success)
             if(x.status==0){
                 console.warn('You are offline!!\n Please Check Your Network.');
             }else if(x.status==404){
-                console.warn('Requested URL not found.' + balance_url);
+                console.warn('Requested URL not found.' + detail_balance_url);
             }else if(x.status==500){
                 console.warn('Internel Server Error.');
             }else if(e=='parsererror'){
@@ -224,7 +225,7 @@ var _getPurse = function(token, callback_error, callback_success)
             if(x.status==0){
                 alert('You are offline!!\n Please Check Your Network.');
             }else if(x.status==404){
-                alert('Requested URL not found.' + balance_url);
+                alert('Requested URL not found.' + purse_url);
             }else if(x.status==500){
                 alert('Internel Server Error.');
             }else if(e=='parsererror'){
@@ -270,7 +271,7 @@ var _getAppVersion = function(callback_success)
             if(x.status==0){
                 console.warn('You are offline!!\n Please Check Your Network.');
             }else if(x.status==404){
-                console.warn('Requested URL not found.' + balance_url);
+                console.warn('Requested URL not found.' + status_url);
             }else if(x.status==500){
                 console.warn('Internel Server Error.');
             }else if(e=='parsererror'){

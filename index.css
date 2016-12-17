@@ -345,11 +345,14 @@ body
     border-radius: 3px;
 }
 
-.send_email .mask {
+.send_email .mask, input[type="number"] {
     width: 80%;
     border: 1px solid blue;
-    font-size: 20px;
+    font-size: 23px;
     clear: both;
+    height:45px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .send_email .mask.error {
     border: 1px solid red;
@@ -357,9 +360,25 @@ body
 
 .send_email .phone_prefix {
     float: left;
-    font-size: 20px;
+    font-size: 32px;
     font-weight: bold;
     position: relative;
-    top: 7px;
-    margin-right: 3px;
+    top: 3px;
+    margin-right: 1px;
+}
+
+input[type="button"] {
+    font-size:23px;
+    border-radius: 2em;
+    padding:0;
+    margin:0 auto;
+    height:45px;
+    text-align:center;
+    width: 90%;
+    background-color: yellow;
+}
+
+input[type="button"].register {
+    margin-left: 20px;
+    width: 85%;
 }

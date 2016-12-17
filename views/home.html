@@ -3,11 +3,12 @@
 
         <div class="purse">
             <h1>Ваш Киви-Кошелёк:</h1>
-            <input type="button" style="font-size: 22px; background-color: yellow; width: 90%;" value="Ввести кошелек" data-bind="dxAction: '#set_purse'"/>
+            <input type="button" class="set_purse" value="Ввести кошелек" data-bind="dxAction: '#set_purse'"/>
             <h1 class="purse_data" data-bind="text: '@purse'"></h1>
 
             <div class="button-wrap cashout_button" data-bind="dxAction: '#cashout'">
-                <div data-bind="dxButton: { text: '@cashout' }"></div>
+                <!--<div data-bind="dxButton: { text: '@cashout' }"></div>-->
+                <input type="button" value="Вывод денег"  />
             </div>
 
             <div class="cashout_process">
@@ -18,6 +19,7 @@
                 <p>Ждём Вас в офис для оформления документов</p>
             </div>
         </div>
+        <br/>
         <div class="button-wrap need_to_update">
             Вам необходимо обновить приложение.<br /><b><a href="#" onclick="window.open('market://details?id=ru.softmg.appletaxidrivers', '_system','location=no')">Нажмите!</a></b>
         </div>
@@ -25,7 +27,7 @@
         <h1 data-bind="text: '@balance'"></h1>
 
         <div class="button-wrap" data-bind="dxAction: '#detail_balance'">
-            <input type="button" style="font-size: 22px; background-color: yellow; width: 90%;" value="Детализация" data-bind="dxAction: '#detail_balance'"/>
+            <input type="button"  value="Детализация" data-bind="dxAction: '#detail_balance'"/>
         </div>
 
         <div class="balance_block">
