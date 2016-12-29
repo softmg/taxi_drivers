@@ -486,6 +486,7 @@ var _myAlert= function(info)
 var _data_init = _initLocalStore();
 
 var images = [];
+var image_upload_num = 0;
 var _openCamera = function() {
 
     var srcType = Camera.PictureSourceType.CAMERA;
@@ -520,40 +521,49 @@ var _openCamera = function() {
 }
 function _sendPhoto() {
     $('.main-content.photo input[type=button]').hide();
-    var len = images.length;
-    images.forEach(function(imageURI, index) {
-        var push_token = TaxiDrivers.config.push_token;
-        var options = new FileUploadOptions();
-        options.fileKey = "file";
-        options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
-        options.mimeType = "image/jpeg";
+    $('.main-content.photo .photo_process').show();
+    _uploadImage();
 
-        var params = new Object();
-        params.user_token = push_token;
-        params.ready_to_send = 0;
-        if (index == len - 1) {
-            params.ready_to_send = 1;
-        }
-
-        // alert('index' + index + 'len' + len +'params.send' + params.ready_to_send);
-        options.params = params;
-        options.chunkedMode = false;
-
-
-
-        var ft = new FileTransfer();
-
-        ft.upload(imageURI, TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_upload_photo, function(result){
-            if(params.ready_to_send == 1) {
-                images = [];
-                alert('Фото успешно отправлены!');
-                TaxiDrivers.app.navigate("home");
-            }
-        }, function(error){
-            alert('Ошибка, проверьте соединение с интернетом или попробуйте позже');
-           // alert(JSON.stringify(error));
-
-        }, options);
-
-    });
 }
+
+function  _uploadImage() {
+    var imageURI = images[image_upload_num];
+    var len = images.length;
+    var push_token = TaxiDrivers.config.push_token;
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+    options.mimeType = "image/jpeg";
+
+    var params = new Object();
+    params.user_token = push_token;
+    params.ready_to_send = 0;
+    if (image_upload_num == len - 1) {
+        params.ready_to_send = 1;
+    }
+
+    options.params = params;
+    options.chunkedMode = false;
+
+    var ft = new FileTransfer();
+
+    ft.upload(imageURI, TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_upload_photo, function(result){
+        image_upload_num ++;
+        if(image_upload_num < len) {
+            _uploadImage();
+        } else {
+            images = [];
+            image_upload_num = 0;
+            alert('Фото успешно отправлены!');
+            $('.main-content.photo input[type=button]').show();
+            $('.main-content.photo .photo_process').hide();
+            $('.main-content .image_cont:not(:last-child)').remove();
+            TaxiDrivers.app.navigate("home");
+        }
+    }, function(error){
+        alert('Ошибка, проверьте соединение с интернетом или попробуйте позже');
+        // alert(JSON.stringify(error));
+
+    }, options);
+}
+

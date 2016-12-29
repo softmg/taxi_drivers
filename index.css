@@ -313,7 +313,7 @@ body
     display: none;
     width: 90%;
 }
-.cashout_success {
+.cashout_success, .photo_process {
     border: 1px solid green;
     color: green;
     padding: 20px;
