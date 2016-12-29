@@ -1,0 +1,22 @@
+<div data-options="dxView : { name: 'send_photo', title: '@send_photo' }" >
+
+    <div class="page" id="newLogScrollView" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }" >
+        <div class="main-content photo">
+
+            <!--<div class="phone-value" data-bind="text: dis_phone"></div>-->
+            <h2>Сделайте снимки с камеры:</h2>
+            <div class="image_cont">
+                <img id="imageFile" />
+            </div>
+
+
+            <input type="button"  class="open_camera" value="Сделать фото" data-bind="dxAction: openCamera" /><br /><br />
+            <input type="button" class="send_photo"  value="Отправить" data-bind="dxAction: sendPhoto" />
+
+            <div style='clear:both;'></div>
+        </div>
+        <div class="view-footer" data-bind="text: version"></div>
+    </div>
+</div>
+
+

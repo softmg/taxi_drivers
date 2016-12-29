@@ -35,7 +35,7 @@ TaxiDrivers.home = function(params) {
             $('.cashout_process').hide();
             $('.cashout_button').hide();
             $('.cashout_success').hide();
-            $('.need_to_update').show();
+            //$('.need_to_update').show();
         }
         else if(!identified){
             $('.no_documents').show();
@@ -43,7 +43,7 @@ TaxiDrivers.home = function(params) {
             $('.cashout_process').hide();
             $('.cashout_button').hide();
             $('.cashout_success').hide();
-            $('.need_to_update').hide();
+           // $('.need_to_update').hide();
         }
         else {
             $('.cashout_error').hide();
@@ -56,6 +56,15 @@ TaxiDrivers.home = function(params) {
             } else {
                 $('.cashout_process').show();
             }
+           // $('.need_to_update').hide();
+        }
+    }
+
+    function ShowHideUpdateBlock(need_to_update)
+    {
+        if(need_to_update) {
+            $('.need_to_update').show();
+        } else {
             $('.need_to_update').hide();
         }
     }
@@ -91,11 +100,14 @@ TaxiDrivers.home = function(params) {
 
         updateBalance(balance);
 
+        var need_to_update = TaxiDrivers.config.need_to_update;
+
         if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
              var can_cashout = TaxiDrivers.config.can_cashout;
-             var need_to_update = TaxiDrivers.config.need_to_update;
             ShowHideCashoutIdentify(can_cashout, identified, need_to_update);
         }
+
+        ShowHideUpdateBlock(need_to_update);
 
         _getPurse(TaxiDrivers.config.push_token, false, function(purse){
             updatePurseInfo(purse);
@@ -118,7 +130,7 @@ TaxiDrivers.home = function(params) {
                         });
                     }
 
-                    _getAppVersion();
+                    _getAppVersion(ShowHideUpdateBlock);
                 },
                 TaxiDrivers.config.balance_update
             );

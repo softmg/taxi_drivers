@@ -68,11 +68,11 @@ body
     display: inline-block;
 }
 
-#viewport .send_email .dx-scrollview-content{
+#viewport .send_email .dx-scrollview-content, #viewport .page .dx-scrollview-content{
     text-align: center;
 }
 
-#viewport .send_email h2{
+#viewport .send_email h2, #viewport .page h2{
     margin: 40px 0px;
 }
 
@@ -187,7 +187,7 @@ body
     height: 100px;
 }
 
-#viewport .send_email .main_content{
+#viewport .send_email .main_content, #viewport .page .main_content{
     top: 50%;
     left: 50%;
     position: fixed;
@@ -328,7 +328,9 @@ body
     width: 90%;
 }
 .view-footer {
+    margin-top: 10px ;
     text-align: center;
+    display: block;
 }
 
 
@@ -381,4 +383,28 @@ input[type="button"] {
 input[type="button"].register {
     margin-left: 20px;
     width: 85%;
+}
+input[type="button"].green {
+    background-color: green;
+}
+
+
+.image_cont {
+    float: left;
+    width: 50%;
+    display: block;
+}
+
+.main-content .image_cont:first-child {
+
+    background-color:  red ;
+}
+
+img#imageFile {
+    max-width: 80%;
+    text-align: center;
+}
+
+input.send_photo {
+    display: none;
 }

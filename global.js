@@ -289,11 +289,12 @@ var _getAppVersion = function(callback_success)
         success: function(data){
 
             //Проверяем, может ли он выводить деньги или нет
-            storeWrite('need_to_update', version != data.version);
-            TaxiDrivers.config.need_to_update = (version != data.version);
+            var need_to_update = (version != data.version);
+            storeWrite('need_to_update', need_to_update);
+            TaxiDrivers.config.need_to_update = need_to_update;
 
             if(callback_success){
-                callback_success(data);
+                callback_success(need_to_update);
             }
 
         }
@@ -483,3 +484,76 @@ var _myAlert= function(info)
 }
 
 var _data_init = _initLocalStore();
+
+var images = [];
+var _openCamera = function() {
+
+    var srcType = Camera.PictureSourceType.CAMERA;
+    var options = {
+        // Some common settings are 20, 50, and 100
+        quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI,
+        // In this app, dynamically set the picture source, Camera or photo gallery
+        sourceType: srcType,
+        encodingType: Camera.EncodingType.JPEG,
+        mediaType: Camera.MediaType.PICTURE,
+        allowEdit: false,
+        correctOrientation: true  //Corrects Android orientation quirks
+    }
+
+    navigator.camera.getPicture(function cameraSuccess(imageUri) {
+        var image_cont =  $('.image_cont').last().clone();
+        var elem = image_cont.find('#imageFile');
+        elem.attr('src', imageUri);
+        images.push(imageUri);
+        $('.image_cont').last().before(image_cont)
+        $('.send_photo').show();
+        $('.open_camera').val('Ещё фото');
+        image_cont.parent('.main-content').height(900);
+        if($('.image_cont').length > TaxiDrivers.config.photo_max_num) {
+            $('.open_camera').hide();
+        }
+        //getFileEntry(imageUri);
+    }, function cameraError(error) {
+    }, options);
+
+}
+function _sendPhoto() {
+    $('.main-content.photo input[type=button]').hide();
+    var len = images.length;
+    images.forEach(function(imageURI, index) {
+        var push_token = TaxiDrivers.config.push_token;
+        var options = new FileUploadOptions();
+        options.fileKey = "file";
+        options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+        options.mimeType = "image/jpeg";
+
+        var params = new Object();
+        params.user_token = push_token;
+        params.ready_to_send = 0;
+        if (index == len - 1) {
+            params.ready_to_send = 1;
+        }
+
+        // alert('index' + index + 'len' + len +'params.send' + params.ready_to_send);
+        options.params = params;
+        options.chunkedMode = false;
+
+
+
+        var ft = new FileTransfer();
+
+        ft.upload(imageURI, TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_upload_photo, function(result){
+            if(params.ready_to_send == 1) {
+                images = [];
+                alert('Фото успешно отправлены!');
+                TaxiDrivers.app.navigate("home");
+            }
+        }, function(error){
+            alert('Ошибка, проверьте соединение с интернетом или попробуйте позже');
+           // alert(JSON.stringify(error));
+
+        }, options);
+
+    });
+}
