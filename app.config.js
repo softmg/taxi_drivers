@@ -20,7 +20,7 @@
         "purse": "",
         "can_cashout": "",
         "can_cashout_update": true,
-        "version": "8.8.9",
+        "version": "9.0.0",
         "photo_max_num": 20
         }
 });
