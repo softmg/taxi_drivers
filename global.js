@@ -492,7 +492,7 @@ var _openCamera = function() {
     var srcType = Camera.PictureSourceType.CAMERA;
     var options = {
         // Some common settings are 20, 50, and 100
-        quality: 50,
+        quality: 20,
         destinationType: Camera.DestinationType.FILE_URI,
         // In this app, dynamically set the picture source, Camera or photo gallery
         sourceType: srcType,
@@ -552,18 +552,28 @@ function  _uploadImage() {
         if(image_upload_num < len) {
             _uploadImage();
         } else {
-            images = [];
-            image_upload_num = 0;
+            //images = [];
+            //image_upload_num = 0;
             alert('Фото успешно отправлены!');
-            $('.main-content.photo input[type=button]').show();
+            /*$('.main-content.photo input[type=button]').show();
             $('.main-content.photo .photo_process').hide();
-            $('.main-content .image_cont:not(:last-child)').remove();
+            $('.main-content .image_cont:not(:last-child)').remove();*/
+            reStartPhotos();
             TaxiDrivers.app.navigate("home");
         }
     }, function(error){
         alert('Ошибка, проверьте соединение с интернетом или попробуйте позже');
+        reStartPhotos();
         // alert(JSON.stringify(error));
 
     }, options);
+}
+
+function reStartPhotos() {
+    images = [];
+    image_upload_num = 0;
+    $('.main-content.photo input[type=button]').show();
+    $('.main-content.photo .photo_process').hide();
+    $('.main-content .image_cont:not(:last-child)').remove();
 }
 

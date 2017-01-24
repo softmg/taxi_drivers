@@ -10,7 +10,7 @@ TaxiDrivers.home_register = function(params) {
 
         //dev_log('start register');
 
-        var title_cur = title();
+        var title_cur = $('#titleInput').val();//title();
 
         _sendToken(push_token, title_cur, function(data){
                // console.warn('store write title: ' + title_cur);
