@@ -102,9 +102,11 @@ TaxiDrivers.home = function(params) {
 
         var need_to_update = TaxiDrivers.config.need_to_update;
 
-        if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
+        if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') { //если арендник
              var can_cashout = TaxiDrivers.config.can_cashout;
             ShowHideCashoutIdentify(can_cashout, identified, need_to_update);
+        } else { //Арендникам выводим кнопку "Заплатить аренду с таксометра"
+            $('.rent_pay_button').show();
         }
 
         ShowHideUpdateBlock(need_to_update);

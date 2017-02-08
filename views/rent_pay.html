@@ -1,0 +1,24 @@
+<div data-options="dxView : { name: 'rent_pay', title: '@send_email' }">
+
+    <div class="send_email rent_pay" id="newLogScrollView" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
+        <div class="main-content">
+            <h2>Введите сумму:</h2>
+
+            <div class="dx-fieldset">
+                <div class="dx-field field_email ">
+                    <input type="number" id="messageInput"/>
+                </div>
+                <div class="dx-field">
+                  <div class="button-wrap rentPayButton" data-bind="dxAction: rentPay">
+                    <input type="button"  value="Заплатить" />
+                  </div>
+                </div>
+            </div>
+
+            <div style='clear:both'></div>
+        </div>
+        <div class="view-footer" data-bind="text: version"></div>
+    </div>
+</div>
+
+

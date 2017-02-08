@@ -406,5 +406,12 @@ img#imageFile {
 }
 
 input.send_photo {
+     display: none;
+ }
+.rent_pay_button {
     display: none;
+}
+.rent_pay_button input {
+    font-size: 20px;
+    background-color: #64ffda;
 }
