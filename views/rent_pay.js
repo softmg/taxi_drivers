@@ -60,6 +60,9 @@ TaxiDrivers.rent_pay = function(params) {
                 $('.rentPayButton').show();
                 $('#messageInput').val('');
 
+                TaxiDrivers.app.router.register(":view", { view: "home" });
+                TaxiDrivers.app.navigate("home");
+
             }
         });
     }
