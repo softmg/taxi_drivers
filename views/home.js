@@ -7,6 +7,7 @@ TaxiDrivers.home = function(params) {
     var purse = TaxiDrivers.config.purse;
     var identified = TaxiDrivers.config.identified;
     var is_qiwi_driver = TaxiDrivers.config.is_qiwi_driver;
+    var title = TaxiDrivers.config.title;
 
     function updateBalance(balance)
     {
@@ -145,6 +146,7 @@ TaxiDrivers.home = function(params) {
         purse: purse,
         beforeViewSetup: beforeViewSetup,
         viewShown: viewShown,
-        version: 'Version: ' + TaxiDrivers.config.version
+        version: 'Version: ' + TaxiDrivers.config.version,
+        title: 'Номер позывного: ' + title,
     };
 };

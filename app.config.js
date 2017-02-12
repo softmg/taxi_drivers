@@ -21,7 +21,7 @@
         "purse": "",
         "can_cashout": "",
         "can_cashout_update": true,
-        "version": "9.0.2",
+        "version": "9.0.3",
         "photo_max_num": 20
         }
 });
