@@ -147,6 +147,6 @@ TaxiDrivers.home = function(params) {
         beforeViewSetup: beforeViewSetup,
         viewShown: viewShown,
         version: 'Version: ' + TaxiDrivers.config.version,
-        title: 'Номер позывного: ' + title,
+        title: 'Ваш позывной: ' + title,
     };
 };
