@@ -2,12 +2,22 @@
     <div class="main-buttons" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
 
         <div class="purse">
-            <h1>Ваш Киви-Кошелёк:</h1>
+
             <input type="button" class="set_purse" value="Ввести кошелек" data-bind="dxAction: '#set_purse'"/>
-            <h1 class="purse_data" data-bind="text: '@purse'"></h1>
+            <div class="purse_info">
+                <h1>Ваш номер кошелька:</h1>
+                <h1 class="purse_data" data-bind="text: '@purse'"></h1>
+            </div>
+
+            <input type="button" class="set_card" value="Ввести номер карты" data-bind="dxAction: '#set_card'"/>
+            <div class="card_info">
+                <h1>Ваш номер карты:</h1>
+                <h1 class="card_data" data-bind="text: '@card'"></h1>
+            </div>
 
             <div class="button-wrap cashout_button" data-bind="dxAction: '#cashout'">
                 <!--<div data-bind="dxButton: { text: '@cashout' }"></div>-->
+                <br />
                 <input type="button" value="Вывод денег"  />
             </div>
 

@@ -5,6 +5,7 @@ TaxiDrivers.cashout = function(params) {
     //var cashout = ko.observable('');
     var user_token = TaxiDrivers.config.push_token;
     var purse = TaxiDrivers.config.purse;
+    var card = TaxiDrivers.config.card;
 
     function cashOut() {
 
@@ -24,7 +25,8 @@ TaxiDrivers.cashout = function(params) {
             type: "GET",
             data:{
                 cashout_value: $('#messageInput').val(),//cashout(),
-                user_token: user_token
+                user_token: user_token,
+                where_to_pay: $('input[name=where_to_pay]:checked').val()
             },
             url: send_email_url,
             dataType: 'jsonp',
@@ -87,7 +89,18 @@ TaxiDrivers.cashout = function(params) {
 
 
         $('.layout-header .dx-button').show();
-        $('.purse_data').text(purse);
+        if(purse) {
+            $('.purse_data').text(purse);
+            $('.purse_label').show();
+        } else {
+            $('.purse_label').hide();
+        }
+        if(card) {
+            $('.card_data').text(card);
+            $('.card_label').show();
+        } else {
+            $('.card_label').hide();
+        }
     }
 
     return {

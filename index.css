@@ -356,7 +356,7 @@ body
     padding-left: 5px;
     padding-right: 5px;
 }
-.send_email .mask.error {
+.send_email .mask.error, .send_email .card_num.error {
     border: 1px solid red;
 }
 
@@ -414,4 +414,40 @@ input.send_photo {
 .rent_pay_button input {
     font-size: 20px;
     background-color: #64ffda;
+}
+.card {
+   width: 400px;
+   height: 250px;
+}
+.card img {
+    width: 100%;
+    display: block;
+   /* max-height: 100%;*/
+}
+.card .card_num {
+    position: relative;
+    top: -127px;
+    width: 80%;
+    font-size: 20px;
+}
+
+.main-content.card-content {
+    height: 700px !important;
+}
+.card_text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: red;
+}
+
+.where_to_pay label > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+.where_to_pay label > input + img{ /* IMAGE STYLES */
+    cursor:pointer;
+    border:2px solid transparent;
+}
+.where_to_pay label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+    border:2px solid #f00;
 }

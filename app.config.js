@@ -8,6 +8,8 @@
         "backend_uri_detail_balance": "get_driver_transactions",
         "backend_uri_set_purse": "set_qiwi_purse",
         "backend_uri_get_purse": "get_qiwi_purse",
+        "backend_uri_set_card": "set_driver_card",
+        "backend_uri_get_card": "get_driver_card",
         "backend_uri_cashout": "qiwi_cashout_test",
         "backend_uri_get_status": "get_driver_status",
         "backend_uri_app_version": "set_actual_app_version",

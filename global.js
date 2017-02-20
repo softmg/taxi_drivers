@@ -250,6 +250,51 @@ var _getPurse = function(token, callback_error, callback_success)
     })
 }
 
+var _getCard = function(token, callback_error, callback_success)
+{
+    var card_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_get_card;
+    var push_token = TaxiDrivers.config.push_token;
+    $.ajax({
+        type: "get",
+        data:{
+            user_token: push_token,
+        },
+        dataType: 'jsonp',
+        url: card_url,
+        jsonp: "mycallback",
+        timeout: 3000,
+        error: function(x,e){
+
+           // alert(x.status);
+            if(x.status==0){
+                alert('You are offline!!\n Please Check Your Network.');
+            }else if(x.status==404){
+                alert('Requested URL not found.' + purse_url);
+            }else if(x.status==500){
+                alert('Internel Server Error.');
+            }else if(e=='parsererror'){
+                alert('Error.\nParsing JSON Request failed. '+x.status);
+            }else if(e=='timeout'){
+                alert('Request Time out.');
+            }else {
+                alert('Unknow Error.\n'+x.responseText);
+            }
+
+        },
+        success: function(data){
+
+            storeWrite("card", data.card);
+
+            TaxiDrivers.config.card   = data.card;
+
+            if(callback_success){
+                callback_success(data.card);
+            }
+        }
+    })
+}
+
+
 var _getAppVersion = function(callback_success)
 {
     var status_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_app_version;
@@ -442,6 +487,11 @@ var _initLocalStore= function()
     store.byKey('need_to_update').done(function(need_to_update) {
         if(need_to_update ) TaxiDrivers.config.need_to_update  = need_to_update.value;
         else need_to_update = false;
+    });
+
+    store.byKey('card').done(function(card) {
+        if(card && card.value) TaxiDrivers.config.card  = card.value;
+        else card = false;
     });
 
     // dev_log('end init local store');

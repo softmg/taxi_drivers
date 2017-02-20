@@ -8,6 +8,7 @@ TaxiDrivers.home = function(params) {
     var identified = TaxiDrivers.config.identified;
     var is_qiwi_driver = TaxiDrivers.config.is_qiwi_driver;
     var title = TaxiDrivers.config.title;
+    var card = TaxiDrivers.config.card;
 
     function updateBalance(balance)
     {
@@ -82,9 +83,27 @@ TaxiDrivers.home = function(params) {
             if(purse != '' && typeof purse !== 'undefined') {
                 $('.purse input.set_purse').hide();
                 $('.purse .purse_data').text(purse);
+                $('.purse .purse_info').show();
             } else {
-                $('.purse .purse_data').hide();
+                $('.purse .purse_info').hide();
                 $('.purse input.set_purse').show();
+            }
+        } else {
+            $('.purse').hide();
+        }
+
+    }
+
+    function updateCardInfo(card)
+    {
+        if( is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined') {
+            if(card != '' && typeof card !== 'undefined') {
+                $('.purse input.set_card').hide();
+                $('.purse .card_data').text(card);
+                $('.purse .card_info').show();
+            } else {
+                $('.purse .card_info').hide();
+                $('.purse input.set_card').show();
             }
         } else {
             $('.purse').hide();
@@ -116,7 +135,9 @@ TaxiDrivers.home = function(params) {
             updatePurseInfo(purse);
         });
 
-
+        _getCard(TaxiDrivers.config.push_token, false, function(card){
+            updateCardInfo(card);
+        });
 
         if(!interval)
         {
@@ -144,6 +165,7 @@ TaxiDrivers.home = function(params) {
     return {
         balance: balance,
         purse: purse,
+        card: card,
         beforeViewSetup: beforeViewSetup,
         viewShown: viewShown,
         version: 'Version: ' + TaxiDrivers.config.version,

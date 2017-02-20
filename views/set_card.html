@@ -1,0 +1,27 @@
+<div data-options="dxView : { name: 'set_card' }">
+
+    <div class="send_email" id="newLogScrollView" data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
+
+
+        <div class="main-content card-content">
+
+            <h2 data-bind="text: '@set_card_message'"></h2>
+
+            <div class="card">
+                <img src="Resources/credit-card.png" />
+                <input class="card_num" type="tel"  data-bind="textInput: card"/>
+            </div>
+
+            <div class="card_text">
+                <p>Подходят только карты VISA или MasterCard </p>
+            </div>
+            <div class="button-wrap" data-bind="dxAction: setCard">
+                <input type="button"  value="Сохранить" />
+            </div>
+
+            <div style='clear:both'></div>
+        </div>
+        <div class="view-footer" data-bind="text: version"></div>
+    </div>
+</div>
+
