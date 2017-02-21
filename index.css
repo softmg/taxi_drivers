@@ -416,8 +416,9 @@ input.send_photo {
     background-color: #64ffda;
 }
 .card {
-   width: 400px;
-   height: 250px;
+   width: 320px;
+   height: 220px;
+
 }
 .card img {
     width: 100%;
@@ -426,7 +427,7 @@ input.send_photo {
 }
 .card .card_num {
     position: relative;
-    top: -127px;
+    top: -107px;
     width: 80%;
     font-size: 20px;
 }
@@ -437,7 +438,9 @@ input.send_photo {
 .card_text {
     padding-top: 10px;
     padding-bottom: 10px;
-    color: red;
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .where_to_pay label > input{ /* HIDE RADIO */
@@ -450,4 +453,29 @@ input.send_photo {
 }
 .where_to_pay label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     border:2px solid #f00;
+}
+
+.where_to_pay img {
+    height: 100px;
+}
+
+.purse_info h1, .card_info h1  {
+    color: red ;
+    margin-bottom: 0px !important;
+}
+
+.purse_info h1:first-child , .card_info  h1:first-child  {
+    color: green;
+}
+
+.purse_info {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.where_to_pay_choice {
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }

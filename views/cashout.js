@@ -103,12 +103,18 @@ TaxiDrivers.cashout = function(params) {
         }
     }
 
+    function setWhereToPay() {
+        $('.where_to_pay_choice').html($('input[name=where_to_pay]:checked').val() == 'card' ? 'на карту' : 'на КИВИ-кошелёк');
+        return true
+    }
+
     return {
         //cashout: cashout,
 
         cashOut: cashOut,
 
         viewShown: viewShown,
-        version: 'Version: ' + TaxiDrivers.config.version
+        version: 'Version: ' + TaxiDrivers.config.version,
+        setWhereToPay : setWhereToPay
     };
 };

@@ -7,14 +7,14 @@
             <h2 class="purse_label">Ваш Киви-кошелёк:<span class="purse_data"></span> </h2>
             <h2 class="card_label">Ваша карта:<span class="card_data"></span> </h2>
             <h2>Куда переводим?</h2>
-
+            <p class="where_to_pay_choice">на КИВИ-кошелёк</p>
             <div class="where_to_pay">
                 <label class="purse_label">
-                    <input type="radio" name="where_to_pay" value="qiwi" checked="checked"/>
+                    <input type="radio" name="where_to_pay" value="qiwi" checked="checked" data-bind="click: setWhereToPay"/>
                     <img src="Resources/qiwi.png">
                 </label>
                 <label class="card_label">
-                    <input type="radio" name="where_to_pay" value="card" />
+                    <input type="radio" name="where_to_pay" value="card" data-bind="click: setWhereToPay"/>
                     <img src="Resources/cards.png">
                 </label>
             </div>
@@ -29,7 +29,7 @@
                 <div class="dx-field">
                   <div class="button-wrap" data-bind="dxAction: cashOut">
                     <!--<div data-bind="dxButton: { text: '@send' }" class="cashoutButton"></div>-->
-                    <input type="button"  value="Отправить" />
+                    <input type="button"  value="Сделать перевод" />
 
                   </div>
                 </div>
