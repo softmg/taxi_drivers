@@ -8,7 +8,7 @@ TaxiDrivers.set_card = function(params) {
     function setCard() {
         var set_card_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_set_card;
 
-        var card_num = card().replace(/-/gi, '');
+        var card_num = card().replace(/_/gi, '').replace(/-/gi, '');
         if(card_num.length < 16) {
             alert('Введите корректный номер карты');
             if (!$('.card_num').hasClass('error')) {

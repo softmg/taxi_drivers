@@ -1,11 +1,11 @@
-﻿html, 
-body, 
-#view-port 
+﻿html,
+body,
+#view-port
 {
     height: 100%;
 }
 
-body 
+body
 {
     margin: 0;
     padding: 0;
@@ -108,7 +108,7 @@ body
     background-color: #EFEFF4;
 }
 
-.empty-layout 
+.empty-layout
 {
     height: 100%;
 }
@@ -125,7 +125,7 @@ body
     padding-right: 0;
 }
 
-.dx-theme-ios .slider-container 
+.dx-theme-ios .slider-container
 {
     line-height: 28px;
 }
@@ -459,12 +459,12 @@ input.send_photo {
     height: 100px;
 }
 
-.purse_info h1, .card_info h1  {
+.purse_info h1, .card_info h1, .red {
     color: red ;
     margin-bottom: 0px !important;
 }
 
-.purse_info h1:first-child , .card_info  h1:first-child  {
+.purse_info h1:first-child , .card_info  h1:first-child , .green {
     color: green;
 }
 
@@ -478,4 +478,18 @@ input.send_photo {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+h2.purse_label {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 0px !important;
+}
+
+.card_label {
+    margin-top: 5px !important;
+}
+
+.set_card {
+    margin-top: 10px !important;
 }
