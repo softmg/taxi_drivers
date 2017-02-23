@@ -464,7 +464,7 @@ input.send_photo {
     margin-bottom: 0px !important;
 }
 
-.purse_info h1:first-child , .card_info  h1:first-child , .green {
+.purse_info h1:first-child , .card_info  h1:first-child , h2.green {
     color: green;
 }
 
@@ -492,4 +492,23 @@ h2.purse_label {
 
 .set_card {
     margin-top: 10px !important;
+}
+
+h2.green.bold {
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0px !important;
+}
+
+h2.card_label {
+    margin-bottom: 10px !important;
+}
+
+h2.cashout_text {
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+}
+
+.cashout.dx-fieldset {
+    margin-top: 0px !important;
 }

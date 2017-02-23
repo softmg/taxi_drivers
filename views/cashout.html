@@ -6,7 +6,7 @@
             <!--<div class="phone-value" data-bind="text: dis_phone"></div>-->
             <h2 class="purse_label green">Ваш Киви-кошелёк: <span class="purse_data red"></span> </h2>
             <h2 class="card_label green">Ваша карта: <span class="card_data red"></span> </h2>
-            <h2 class="green">Сделать перевод:</h2>
+            <h2 class="green bold">Сделать перевод:</h2>
             <p class="where_to_pay_choice">на КИВИ-кошелёк</p>
             <div class="where_to_pay">
                 <label class="purse_label">
@@ -19,9 +19,9 @@
                 </label>
             </div>
 
-            <h2 data-bind="text: '@cashout_text'"></h2>
+            <h2 class="cashout_text" data-bind="text: '@cashout_text'"></h2>
 
-            <div class="dx-fieldset">
+            <div class="dx-fieldset cashout">
                 <div class="dx-field field_email">
                     <input type="number" id="messageInput"/>
                     <!--<div id="messageInput2" class="dx-field-value " data-bind="dxNumberBox: { min: 0, max: 100, showSpinButtons: true, step: 5, value: cashout, placeholder: '@cashout_text' }"></div>-->
