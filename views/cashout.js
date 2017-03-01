@@ -92,12 +92,20 @@ TaxiDrivers.cashout = function(params) {
         if(purse) {
             $('.purse_data').text(purse);
             $('.purse_label').show();
+            if(!card) {
+                $('.purse_label input').prop('checked',true);
+                setWhereToPay();
+            }
         } else {
             $('.purse_label').hide();
         }
         if(card) {
             $('.card_data').text(card);
             $('.card_label').show();
+            if(!purse) {
+                $('.card_label input').prop('checked',true);
+                setWhereToPay();
+            }
         } else {
             $('.card_label').hide();
         }
