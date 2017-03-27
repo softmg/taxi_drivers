@@ -88,8 +88,19 @@ var _getBalance = function(token, to_home, callback_success)
             storeWrite("date_config", new Date().valueOf());
 
             storeWrite("balance", data.balance);
-
             TaxiDrivers.config.balance   = data.balance;
+
+            storeWrite("rent_time_left", data.rent_time_left);
+            TaxiDrivers.config.rent_time_left   = data.rent_time_left;
+
+            storeWrite("rent_hour", data.rent_hour);
+            TaxiDrivers.config.rent_hour   = data.rent_hour;
+
+            storeWrite("car_blocked", data.car_blocked);
+            TaxiDrivers.config.car_blocked   = data.car_blocked;
+
+            storeWrite("is_time_left", data.is_time_left);
+            TaxiDrivers.config.is_time_left   = data.is_time_left;
 
             if(to_home)
             {
@@ -98,7 +109,7 @@ var _getBalance = function(token, to_home, callback_success)
             }
             else{
                 if(callback_success){
-                    callback_success(data.balance);
+                    callback_success(data.balance, data.rent_hour, data.rent_time_left, data.car_blocked, data.is_time_left);
                 }
             }
         }
@@ -420,7 +431,9 @@ var _initLocalStore= function()
     var title = true;
     var is_qiwi_driver = true;
     var purse = true;
-
+    var rent_hour = false;
+    var rent_time_left = false;
+    var is_time_left = true;
 
     store = new DevExpress.data.LocalStore({
         name: "mld_taxi_drivers",
@@ -494,15 +507,30 @@ var _initLocalStore= function()
         else card = false;
     });
 
+    store.byKey('rent_hour').done(function(rent_hour) {
+        if(rent_hour && rent_hour.value) TaxiDrivers.config.rent_hour  = rent_hour.value;
+        else rent_hour = false;
+    });
+
+    store.byKey('rent_time_left').done(function(rent_time_left) {
+        if(rent_time_left && rent_time_left.value) TaxiDrivers.config.rent_time_left  = rent_time_left.value;
+        else rent_time_left = false;
+    });
+
+    store.byKey('is_time_left').done(function(is_time_left) {
+        if(is_time_left && is_time_left.value) TaxiDrivers.config.is_time_left  = is_time_left.value;
+        else is_time_left = true;
+    });
+
     // dev_log('end init local store');
-    //title = false; //ПОТОМ ЗАКОММЕнтить
+    // title = false; //ПОТОМ ЗАКОММЕнтить
     //purse = false;
     //storeWrite('purse', ''); // заменить на is_qiwi_driver
-    /*is_qiwi_driver = false;
-    TaxiDrivers.config.is_qiwi_driver = '';  // заменить на is_qiwi_driver
-    */
+    //is_qiwi_driver = false; //арендник значит
+    //TaxiDrivers.config.is_qiwi_driver = '';  // заменить на is_qiwi_driver
 
-    return {'config':config, 'push':push, 'title':title, 'is_qiwi_driver':is_qiwi_driver, 'purse':purse};
+
+    return {'config':config, 'push':push, 'title':title, 'is_qiwi_driver':is_qiwi_driver, 'purse':purse, 'rent_hour': rent_hour, 'rent_time_left': rent_time_left, 'is_time_left': is_time_left};
 }
 
 var _initPush= function(callback) {

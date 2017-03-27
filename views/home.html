@@ -35,7 +35,7 @@
         </div>
 
         <h1 data-bind="text: title"></h1>
-        <h1 data-bind="text: '@balance'"></h1>
+
 
         <div class="button-wrap" data-bind="dxAction: '#detail_balance'">
             <input type="button"  value="Детализация" data-bind="dxAction: '#detail_balance'"/>
@@ -46,17 +46,31 @@
         </div>
 
         <div class="balance_block">
+            <h1 data-bind="text: '@balance'"></h1>
+
               <div class="button-wrap">
-                <div class="balance" data-bind="text: balance"></div>
+                <div class="balance">
+                    <div data-bind="text: balance"></div>
+                    <div class="rent_time">
+                        До конца аренды остается:<br />
+                        <span></span>
+                    </div>
+
+                </div>
               </div>
+
+            <div class="button-wrap credit_button" data-bind="click: credit">
+                <input type="button" value="Отсрочка платежа"  /><br>
+            </div>
 
             <div class="button-wrap rent_pay_button" data-bind="dxAction: '#rent_pay'">
                 <input type="button" value="Заплатить аренду с таксометра"  />
             </div>
-
-              <div class="button-wrap" data-bind="dxAction: '#send_email'">
+            <!--
+              <div class="button-wrap link" data-bind="dxAction: '#send_email'">
                 <div data-bind="dxButton: { text: '@write' }"></div>
-              </div>
+              </div>--><br>
+              <a class="send_mail" data-bind="dxAction: '#send_email'">Написать</a>
         </div>
 
         <div class="cashout_success">
@@ -71,6 +85,9 @@
             <p>с 10:00 до 16:00</p>
             <p>AppleTaxi</p>
             <p>Необходимые документы: стс, паспорт, лицензия</p>
+        </div>
+        <div class="car_blocked_error">
+            <p>Ваша машина заблокирована, пополните счет или закажите отсрочку</p>
         </div>
         <!--<div>Version: 0.0.9</div>-->
         <div class="view-footer" data-bind="text: version"></div>

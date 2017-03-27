@@ -15,6 +15,7 @@
         "backend_uri_app_version": "set_actual_app_version",
         "backend_upload_photo": "upload_photo",
         "backend_rent_pay": "driver_pay_from_rostaxi",
+        "backend_uri_credit": "get_rent_credit",
         "push_token": "",
         "title": "",
         "balance_update": 6000,
@@ -24,6 +25,9 @@
         "can_cashout": "",
         "can_cashout_update": true,
         "version": "9.0.5",
-        "photo_max_num": 20
+        "photo_max_num": 20,
+        "rent_hour": false,
+        "car_blocked": false,
+        "is_time_left": true
         }
 });

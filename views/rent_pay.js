@@ -11,13 +11,6 @@ TaxiDrivers.rent_pay = function(params) {
 
         $('.rentPayButton').hide();
 
-        //storeWrite('can_cashout', false);
-        //TaxiDrivers.config.can_cashout = false;
-        //TaxiDrivers.app.router.register(":view", {view: "home"});
-        //TaxiDrivers.app.navigate("home");
-
-        //Блокируем обновление статуса по выводу денег пока не получим результат ( не важно положительный или отрицательный )
-        //TaxiDrivers.config.can_cashout_update = false;
 
         $.ajax({
             type: "GET",

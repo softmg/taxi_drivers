@@ -48,6 +48,12 @@ body
     padding: 10px 5px;
 }
 
+a.send_mail {
+    padding-top: 20px;
+    font-size: 25px;
+    color: blue;
+}
+
 #viewport .dx-button-back .dx-button-content{
     padding: 2px 0px;
     margin-left: 0px;
@@ -213,6 +219,10 @@ body
     margin-bottom: 40px;
 }
 
+.balance_block h1 {
+    margin-bottom: 10px !important;
+}
+
 #viewport .balance{
     display: inline-block;
     padding: 33px 0px;
@@ -220,11 +230,11 @@ body
     width: 85%;
     background-color: #f8f8f8;
     background-repeat: no-repeat;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
     -webkit-box-shadow: inset 0 1px rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.15);
     -moz-box-shadow: inset 0 1px rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.15);
     box-shadow: inset 0 1px rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.15);
@@ -238,6 +248,22 @@ body
     border: 1px solid rgba(0,0,0,.15);
 
     font-size: 36pt !important;
+}
+
+#viewport .balance .rent_time {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#viewport .balance .rent_time span {
+    font-size: 25px;
+}
+
+#viewport .balance.pozitive .rent_time {
+     color: red;
+ }
+#viewport .balance.negative .rent_time {
+    color: black;
 }
 
 #viewport .balance.pozitive{
@@ -320,7 +346,7 @@ body
     display: none;
     width: 90%;
 }
-.cashout_error {
+.cashout_error, .car_blocked_error {
     border: 1px solid red;
     color: red;
     padding: 20px;
@@ -377,7 +403,16 @@ input[type="button"] {
     height:45px;
     text-align:center;
     width: 90%;
-    background-color: yellow;
+    /*background-color: yellow;*/
+    border: 1px solid dimgrey;
+    background-color: #FFFFFF; background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F6F283));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #F6F283);
+    background-image: -moz-linear-gradient(top, #FFFFFF, #F6F283);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #F6F283);
+    background-image: -o-linear-gradient(top, #FFFFFF, #F6F283);
+    background-image: linear-gradient(to bottom, #FFFFFF, #F6F283);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#FFFFFF, endColorstr=#F6F283);
+
+
 }
 
 input[type="button"].register {
@@ -385,7 +420,14 @@ input[type="button"].register {
     width: 85%;
 }
 input[type="button"].green {
-    background-color: green;
+    /*background-color: green;*/
+    background-color: #FFFFFF; background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#179140));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #179140);
+    background-image: -moz-linear-gradient(top, #FFFFFF, #179140);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #179140);
+    background-image: -o-linear-gradient(top, #FFFFFF, #179140);
+    background-image: linear-gradient(to bottom, #FFFFFF, #179140);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#FFFFFF, endColorstr=#179140);
+
 }
 
 
@@ -408,12 +450,21 @@ img#imageFile {
 input.send_photo {
      display: none;
  }
-.rent_pay_button {
+.rent_pay_button, .credit_button {
     display: none;
+}
+.credit_button {
+    margin-bottom: 10px;
 }
 .rent_pay_button input {
     font-size: 20px;
-    background-color: #64ffda;
+    /*background-color: #64ffda;*/
+    background-color: #FFFFFF; background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#64ffda));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #64ffda);
+    background-image: -moz-linear-gradient(top, #FFFFFF, #64ffda);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #64ffda);
+    background-image: -o-linear-gradient(top, #FFFFFF, #64ffda);
+    background-image: linear-gradient(to bottom, #FFFFFF, #64ffda);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#FFFFFF, endColorstr=#64ffda);
 }
 .card {
    width: 320px;
