@@ -24,7 +24,7 @@
         "purse": "",
         "can_cashout": "",
         "can_cashout_update": true,
-        "version": "9.0.5",
+        "version": "9.0.6",
         "photo_max_num": 20,
         "rent_hour": false,
         "car_blocked": false,

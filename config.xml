@@ -2,9 +2,9 @@
 <widget
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0"
-    id="ru.softmg.appletaxidrivers"
-    versionCode="905"
-    version="9.0.5"
+    id="ru.appletaxidrivers"
+    versionCode="906"
+    version="9.0.6"
     defaultlocale="ru-RU">
 
     <!--<gap:plugin name="org.apache.cordova.globalization" version="0.2.6" />-->
@@ -27,8 +27,8 @@
        Для таксистов компании AppleTaxi
     </description>
 
-    <author href="http://www.softmg.ru">
-        Soft Media Group
+    <author href="http://www.appletaxi.ru">
+        Apple Taxi
     </author>
 
     <preference name="phonegap-version" value="cli-6.3.0" />
