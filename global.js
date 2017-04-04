@@ -87,8 +87,8 @@ var _getBalance = function(token, to_home, callback_success)
 
             storeWrite("date_config", new Date().valueOf());
 
-            storeWrite("balance", data.balance);
-            TaxiDrivers.config.balance   = data.balance;
+            storeWrite("balance", data.real_balance);
+            TaxiDrivers.config.balance   = data.real_balance;
 
             storeWrite("rent_time_left", data.rent_time_left);
             TaxiDrivers.config.rent_time_left   = data.rent_time_left;
@@ -109,7 +109,7 @@ var _getBalance = function(token, to_home, callback_success)
             }
             else{
                 if(callback_success){
-                    callback_success(data.balance, data.rent_hour, data.rent_time_left, data.car_blocked, data.is_time_left);
+                    callback_success(data.real_balance, data.rent_hour, data.rent_time_left, data.car_blocked, data.is_time_left);
                 }
             }
         }
