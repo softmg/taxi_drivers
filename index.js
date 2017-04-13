@@ -9,6 +9,21 @@
         navigationType: TaxiDrivers.config.navigationType
     });
 
+
+    TaxiDrivers.app.viewShown.add(function(args) {
+        var viewName = args.viewInfo.viewName;
+        if(viewName === "home_register") {
+            $('.layout-header').hide();
+            if(!$('.layout-content').hasClass(viewName)) {
+                $('.layout-content').addClass(viewName);
+            }
+        } else {
+            $('.layout-header').show();
+            $('.layout-content').removeClass('home_register');
+        }
+        $('.layout-content')
+    });
+
     //mobile
     document.addEventListener("deviceready", onDeviceReady, true);
     //костыль, так как перестал запускаться deviceready

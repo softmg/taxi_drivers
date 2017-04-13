@@ -10,9 +10,18 @@ TaxiDrivers.home_register = function(params) {
 
         //dev_log('start register');
 
-        var title_cur = $('#titleInput').val();//title();
+        var title_cur = $('#titleInput').val();
+        var pass_cur = $('#passwordInput').val();
 
-        _sendToken(push_token, title_cur, function(data){
+        if(validateField($('#titleInput'), 'Введите номер позывного!')) {
+            return true;
+        }
+
+        if(validateField($('#passwordInput'), 'Введите пароль!')) {
+            return true;
+        }
+
+        _sendToken(push_token, title_cur, pass_cur, function(data){
                // console.warn('store write title: ' + title_cur);
 
                 storeWrite('title', title_cur);
@@ -42,7 +51,6 @@ TaxiDrivers.home_register = function(params) {
     return {
         title: title,
 
-        register: register,
-        version: 'Version: ' + TaxiDrivers.config.version
+        register: register
     };
 };

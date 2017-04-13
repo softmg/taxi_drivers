@@ -276,7 +276,7 @@ a.send_mail {
     color: #000;
 }
 
-#titleInput{
+#titleInput, #passwordInput {
     width: 85%;
     display: inline-block;
     margin-left: 20px;
@@ -296,10 +296,12 @@ a.send_mail {
     left: 50%;
     margin-left: -50%;
     margin-right: auto;
-    margin-top: -141px;
     /*position: fixed;*/
-    top: 50%;
     width: 300px;
+    background-image: url('Resources/login_bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
 }
 
 .home_register.dx-content .dx-button-text{
@@ -317,6 +319,87 @@ a.send_mail {
 
 .home_register.dx-content .dx-placeholder{
     font-size: 48px;
+}
+
+.home_register input[type=button] {
+    background-size: cover;
+    background-image: url('Resources/button.png');
+    border-radius: 7px;
+    color: #ffd123;
+    letter-spacing: 5px;
+    font-family: arial;
+    text-shadow: 1px 0 black;
+    height: 34px;
+    margin-left: 0px !important;
+}
+.home_register .button-wrap {
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.home_register .fields {
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    text-align: right;
+}
+.home_register .fields .row {
+    padding-left: 30px;
+    padding-right: 30px;
+    clear: both;
+}
+.home_register .fields .field {
+    float: right;
+    margin-bottom: 7px;
+}
+
+.home_register #titleInput, .home_register #passwordInput {
+    margin-left: 0px;
+    width: 110px;
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    height: 26px;
+    color: rgba(0,0,0,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: -webkit-linear-gradient(90deg, rgba(0,0,0,0.62) 0, rgba(238,179,0,0.94) 51%, rgba(0,0,0,0.63) 100%);
+    background: -moz-linear-gradient(0deg, rgba(0,0,0,0.62) 0, rgba(238,179,0,0.94) 51%, rgba(0,0,0,0.63) 100%);
+    background: linear-gradient(0deg, rgba(0,0,0,0.62) 0, rgba(238,179,0,0.94) 51%, rgba(0,0,0,0.63) 100%);
+    background-position: 50% 50%;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-background-size: auto auto;
+    background-size: auto auto;
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+.home_register .fields .title {
+    float: left;
+    width: 35%;
+    color: #ffd123;
+    text-shadow: 1px 0 black;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.layout-content.home_register {
+    top: 0px !important;
 }
 
 .detail_balance .item {
@@ -373,7 +456,7 @@ a.send_mail {
     border-radius: 3px;
 }
 
-.send_email .mask, input[type="number"] {
+.send_email .mask, input[type="number"], input[type="password"] {
     width: 80%;
     border: 1px solid blue;
     font-size: 23px;
@@ -382,7 +465,7 @@ a.send_mail {
     padding-left: 5px;
     padding-right: 5px;
 }
-.send_email .mask.error, .send_email .card_num.error {
+.send_email .mask.error, .send_email .card_num.error, #titleInput.error, #passwordInput.error {
     border: 1px solid red;
 }
 
@@ -566,4 +649,16 @@ h2.cashout_text {
 
 .cashout.dx-fieldset {
     margin-top: 0px !important;
+}
+.layout-header {
+    display: none;
+}
+
+@media screen and (orientation: landscape) {
+.home_register .fields {
+    position: relative;
+    width: 70%;
+    top: 170px;
+    margin: 0 auto;
+}
 }

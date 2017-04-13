@@ -2,7 +2,7 @@
     messages: {
         "appletaxi": "APPLETAXI DRIVERS",
         "register": "Зарегистрироваться",
-        "title_enter": "Для регистрации введите Ваш позывной",
+        "title_enter": "Введите Ваш позывной",
         "title": "Позывной",
         "balance": "Баланс",
         "detail_balance": "Детализация",
@@ -22,6 +22,7 @@
         "Cancel" : "Отменить",
         "Done" : "Применить",
         "save": "Сохранить",
-        "set_card_message" : "Ваш номер карты"
+        "set_card_message" : "Ваш номер карты",
+        "password_enter": "Введите Ваш пароль",
     }
 });

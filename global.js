@@ -23,6 +23,7 @@ var pushNotification;
 var is_mobile = false;
 var last_error;
 var interval;
+var store_params = ['date_config', 'balance', 'rent_time_left', 'rent_hour', 'car_blocked', 'is_time_left', 'title', 'detail_balance', 'is_qiwi_driver', 'purse', 'can_cashout', 'identified', 'need_to_update', 'card'];
 
 if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform !== 'generic')
 {
@@ -82,6 +83,12 @@ var _getBalance = function(token, to_home, callback_success)
                         } */
                     },
         success: function(data){
+
+           if(data.error) {
+                _cleanStoreData();
+                //TaxiDrivers.app.router.register(":view", { view: "home_register" });
+                TaxiDrivers.app.navigate("home_register", { target: 'current' });
+            }
 
             //dev_log('config success!');
 
@@ -358,7 +365,7 @@ var _getAppVersion = function(callback_success)
 }
 
 //after device push register send info to the server
-var _sendToken = function(push_token, title, callback, callback_error)
+var _sendToken = function(push_token, title, password, callback, callback_error)
 {
     var push_token_url = TaxiDrivers.config.backend_url + TaxiDrivers.config.backend_uri_push_token;
     if(is_mobile)
@@ -377,7 +384,8 @@ var _sendToken = function(push_token, title, callback, callback_error)
         data:{
             platform: device_platform,
             user_token: push_token,
-            title: title
+            title: title,
+            password: password
         },
         url: push_token_url,
         dataType: 'jsonp',
@@ -653,5 +661,25 @@ function reStartPhotos() {
     $('.main-content.photo input[type=button]').show();
     $('.main-content.photo .photo_process').hide();
     $('.main-content .image_cont:not(:last-child)').remove();
+}
+
+function validateField(el, message) {
+    if (!el.val()) {
+        alert(message);
+        el.toggleClass('error');
+        return true;
+    } else {
+        if(el.hasClass('error')) {
+            el.toggleClass('error');
+        }
+        return false;
+    }
+}
+
+function _cleanStoreData () {
+    for(var i=0; i< store_params.length; i++) {
+        //alert(store_params[i]);
+        store.remove(store_params[i]);
+    }
 }
 
