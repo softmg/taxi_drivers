@@ -500,7 +500,7 @@ input[type="button"] {
 
 input[type="button"].register {
     margin-left: 20px;
-    width: 85%;
+    width: 99%;
 }
 input[type="button"].green {
     /*background-color: green;*/
@@ -652,6 +652,12 @@ h2.cashout_text {
 }
 .layout-header {
     display: none;
+}
+
+#viewport .balance .is_day_off {
+    font-weight: bold;
+    font-size: 28px;
+    color: red;
 }
 
 @media screen and (orientation: landscape) {

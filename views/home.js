@@ -13,8 +13,9 @@ TaxiDrivers.home = function(params) {
     var car_blocked = TaxiDrivers.config.car_blocked;
     var user_token = TaxiDrivers.config.push_token;
     var is_time_left = TaxiDrivers.config.is_time_left;
+    var is_day_off = TaxiDrivers.config.is_day_off;
 
-    function updateBalance(balance, rent_hour, rent_time_left, car_blocked, is_time_left)
+    function updateBalance(balance, rent_hour, rent_time_left, car_blocked, is_time_left, is_day_off)
     {
 
         $('.balance').removeClass('pozitive').removeClass('negative');
@@ -31,14 +32,23 @@ TaxiDrivers.home = function(params) {
 
         $('.balance div:first-child').text(balance);
 
-        if(rent_hour) {
+        if(rent_hour && !is_day_off) {
             $('.balance .rent_time').show();
             $('.balance span').text(rent_time_left);
         } else {
             $('.balance .rent_time').hide();
+            if(is_day_off) {
+                $('.balance .is_day_off').show();
+            }
+        }
+        if(!is_day_off) {
+            $('.balance .is_day_off').hide();
         }
 
-        if(car_blocked) {
+        var is_qiwi_driver = TaxiDrivers.config.is_qiwi_driver;
+        var is_qiwi_driver = is_qiwi_driver != '' && typeof is_qiwi_driver !== 'undefined';
+
+        if(car_blocked && !is_qiwi_driver) {
             $('.car_blocked_error').show();
         } else {
             $('.car_blocked_error').hide();
@@ -189,10 +199,11 @@ TaxiDrivers.home = function(params) {
         rent_time_left = TaxiDrivers.config.rent_time_left;
         car_blocked = TaxiDrivers.config.car_blocked;
         is_time_left = TaxiDrivers.config.is_time_left;
+        is_day_off = TaxiDrivers.config.is_day_off;
 
         $('.layout-header .dx-button').hide();
 
-        updateBalance(balance, rent_hour, rent_time_left, car_blocked, is_time_left);
+        updateBalance(balance, rent_hour, rent_time_left, car_blocked, is_time_left, is_day_off);
 
         var need_to_update = TaxiDrivers.config.need_to_update;
 
@@ -216,8 +227,8 @@ TaxiDrivers.home = function(params) {
         if(!interval)
         {
             interval = window.setInterval(function(){
-                    _getBalance(TaxiDrivers.config.push_token, false, function(balance, rent_hour, rent_time_left, car_blocked, is_time_left){
-                        updateBalance(balance, rent_hour, rent_time_left, car_blocked, is_time_left);
+                    _getBalance(TaxiDrivers.config.push_token, false, function(balance, rent_hour, rent_time_left, car_blocked, is_time_left, is_day_off){
+                        updateBalance(balance, rent_hour, rent_time_left, car_blocked, is_time_left, is_day_off);
                     });
                     var can_cashout_update = TaxiDrivers.config.can_cashout_update;
                     var need_to_update = TaxiDrivers.config.need_to_update;

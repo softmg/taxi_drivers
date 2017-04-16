@@ -18,7 +18,6 @@ window.onerror = function(msg, url, line, col, error) {
 };
 
 var store;
-var store_data;
 var pushNotification;
 var is_mobile = false;
 var last_error;
@@ -29,6 +28,45 @@ if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.curr
 {
     is_mobile = true; //set false for emulator debug
 }
+
+var initAppConfig = function(push_token)
+{
+    window.TaxiDrivers = $.extend(true, window.TaxiDrivers, {
+        "config": {
+            "navigationType": "simple",
+            "backend_url": "http://5960.ru/",
+            "backend_uri_send_email": "send_email",
+            "backend_uri_push_token": "get_token",
+            "backend_uri_balance": "get_driver_balance",
+            "backend_uri_detail_balance": "get_driver_transactions",
+            "backend_uri_set_purse": "set_qiwi_purse",
+            "backend_uri_get_purse": "get_qiwi_purse",
+            "backend_uri_set_card": "set_driver_card",
+            "backend_uri_get_card": "get_driver_card",
+            "backend_uri_cashout": "qiwi_cashout_test",
+            "backend_uri_get_status": "get_driver_status",
+            "backend_uri_app_version": "set_actual_app_version",
+            "backend_upload_photo": "upload_photo",
+            "backend_rent_pay": "driver_pay_from_rostaxi",
+            "backend_uri_credit": "get_rent_credit",
+            "push_token": push_token ? push_token : "",
+            "title": "",
+            "balance_update": 6000,
+            "store_actual_time" : 100000,
+            "is_qiwi_driver": "",
+            "purse": "",
+            "can_cashout": "",
+            "can_cashout_update": true,
+            "version": "9.0.7",
+            "photo_max_num": 20,
+            "rent_hour": false,
+            "car_blocked": false,
+            "is_time_left": true,
+            "is_day_off": false
+        }
+    });
+}
+initAppConfig();
 
 var mycallback = function(data)
 {
@@ -109,6 +147,9 @@ var _getBalance = function(token, to_home, callback_success)
             storeWrite("is_time_left", data.is_time_left);
             TaxiDrivers.config.is_time_left   = data.is_time_left;
 
+            storeWrite("is_day_off", data.is_day_off);
+            TaxiDrivers.config.is_day_off   = data.is_day_off;
+
             if(to_home)
             {
                 TaxiDrivers.app.router.register(":view", { view: "home" });
@@ -116,7 +157,7 @@ var _getBalance = function(token, to_home, callback_success)
             }
             else{
                 if(callback_success){
-                    callback_success(data.real_balance, data.rent_hour, data.rent_time_left, data.car_blocked, data.is_time_left);
+                    callback_success(data.real_balance, data.rent_hour, data.rent_time_left, data.car_blocked, data.is_time_left, data.is_day_off);
                 }
             }
         }
@@ -678,8 +719,8 @@ function validateField(el, message) {
 
 function _cleanStoreData () {
     for(var i=0; i< store_params.length; i++) {
-        //alert(store_params[i]);
         store.remove(store_params[i]);
     }
+    initAppConfig(TaxiDrivers.config.push_token);
 }
 

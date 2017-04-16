@@ -28,6 +28,7 @@
         "photo_max_num": 20,
         "rent_hour": false,
         "car_blocked": false,
-        "is_time_left": true
+        "is_time_left": true,
+        "is_day_off": false
         }
 });
