@@ -32,7 +32,7 @@ TaxiDrivers.home = function(params) {
 
         $('.balance div:first-child').text(balance);
 
-        if(rent_hour && !is_day_off) {
+        if(rent_time_left && !is_day_off) {
             $('.balance .rent_time').show();
             $('.balance span').text(rent_time_left);
         } else {
