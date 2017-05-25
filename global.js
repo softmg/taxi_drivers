@@ -57,7 +57,7 @@ var initAppConfig = function(push_token)
             "purse": "",
             "can_cashout": "",
             "can_cashout_update": true,
-            "version": "9.0.8",
+            "version": "9.0.9",
             "photo_max_num": 20,
             "rent_hour": false,
             "car_blocked": false,
